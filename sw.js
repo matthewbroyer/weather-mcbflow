@@ -2,8 +2,8 @@
    Network-first for the app's own files, cache as the offline fallback. Never touches user data
    (localStorage / IndexedDB), never intercepts non-GET or cross-origin requests (weather APIs, map tiles).
    BUMP VERSION ON EVERY RELEASE so installed copies drop old files and pick up new icons. */
-const VERSION = 'weather-20261015-v1.11';
-const SHELL = ['./', 'index.html', 'manifest.json', 'favicon.ico', 'favicon.svg', 'mb-suite-topbar.css', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'mb-sync.js', 'vendor/supabase.js', 'vendor/leaflet.js', 'vendor/leaflet.css', 'vendor/maplibre-gl.js', 'vendor/maplibre-gl.css', 'vendor/leaflet-maplibre-gl.js', 'vendor/topojson-client.min.js', 'vendor/countries-50m.json', 'vendor/states-10m.json', 'vendor/images/layers.png', 'vendor/images/layers-2x.png', 'vendor/images/marker-icon.png', 'vendor/images/marker-icon-2x.png', 'vendor/images/marker-shadow.png'];
+const VERSION = 'weather-20261016-v1.12';
+const SHELL = ['./', 'index.html', 'manifest.json', 'favicon.ico', 'favicon.svg', 'mb-suite-topbar.css', 'apple-touch-icon.png', 'icon-192.png', 'icon-512.png', 'icon-maskable-512.png', 'mb-sync.js', 'mb-files.js', 'vendor/supabase.js', 'vendor/leaflet.js', 'vendor/leaflet.css', 'vendor/maplibre-gl.js', 'vendor/maplibre-gl.css', 'vendor/leaflet-maplibre-gl.js', 'vendor/topojson-client.min.js', 'vendor/countries-50m.json', 'vendor/states-10m.json', 'vendor/images/layers.png', 'vendor/images/layers-2x.png', 'vendor/images/marker-icon.png', 'vendor/images/marker-icon-2x.png', 'vendor/images/marker-shadow.png'];
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(VERSION).then(c => c.addAll(SHELL.map(u => new Request(u, { cache: 'reload' })))).then(() => self.skipWaiting()));

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0284C7">
-<title>Weather | Overview</title>
+<title>Weather | Home</title>
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://tilecache.rainviewer.com https://tiles.openfreemap.org; connect-src 'self' https://rxvcjdwmvxhwbdwncfhj.supabase.co https://api.open-meteo.com https://geocoding-api.open-meteo.com https://archive-api.open-meteo.com https://air-quality-api.open-meteo.com https://marine-api.open-meteo.com https://api.weather.gov https://api.tidesandcurrents.noaa.gov https://api.rainviewer.com https://tiles.openfreemap.org data: blob:; worker-src 'self' blob:; child-src blob:; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <script>(function(){var t="light";try{var p=JSON.parse(localStorage.getItem("weather.prefs")||"{}");if(p&&p.theme==="dark")t="dark"}catch(e){}document.documentElement.setAttribute("data-theme",t)})();</script>
 <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -105,10 +105,6 @@ select.btn{padding-right:8px}
 [data-mode="everyday"] .pro{display:none!important}
 [data-mode="pro"] .ev{display:none!important}
 .setwrap{position:relative}
-.panel-set{overscroll-behavior:contain;position:fixed;right:16px;z-index:40;width:min(330px,calc(100vw - 32px));max-height:calc(100vh - 80px);overflow:auto;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow-pop);padding:14px;display:flex;flex-direction:column;gap:14px}
-.fld{display:flex;flex-direction:column;gap:6px;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
-.fld .btn,.fld select{font-size:14px;text-transform:none;letter-spacing:0;color:var(--fg);width:100%}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .seg{display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 .seg button{flex:1;white-space:nowrap;padding:10px;background:var(--surface);border:0;cursor:pointer;font-size:14px;color:var(--fg);text-transform:none;letter-spacing:0}
 .seg button:hover{background:var(--surface-2)}
@@ -249,12 +245,6 @@ button.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px
 details.fold>summary,.alert summary{padding:10px 0;min-height:44px;box-sizing:border-box}
 .sum-link{display:inline-block;padding:10px 0}
 @media (pointer:coarse){.rule input[type=number]{min-height:44px}.maprow input[type=range]{height:44px}.results button{padding:14px 12px}.date{min-height:44px}}
-/* settings groups */
-.grp{display:flex;flex-direction:column;gap:10px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.grp h4{margin:0;font-size:13px;font-weight:600}
-#replay{width:100%}
-.panel-set details.adv>summary{margin-top:0;padding:10px 0}
-.panel-set details.adv[open]{display:flex;flex-direction:column;gap:10px}
 /* toast */
 .toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:120;display:flex;gap:6px;align-items:center;width:max-content;max-width:min(520px,calc(100vw - 32px));background:var(--fg);color:var(--bg);padding:6px 6px 6px 16px;border-radius:var(--r);box-shadow:var(--shadow-pop);font-size:14px}
 .toast button{min-height:44px;padding:0 14px;border:0;background:transparent;color:inherit;font-weight:700;text-decoration:underline;cursor:pointer;border-radius:var(--r-sm)}
@@ -266,49 +256,12 @@ details.fold>summary,.alert summary{padding:10px 0;min-height:44px;box-sizing:bo
 @keyframes sh{to{background-position:-200% 0}}
 .status .btn+.btn{margin-left:8px}
 .status p{margin:0 0 10px}
-/* onboarding */
-.ob{position:fixed;inset:0;z-index:100;background:var(--bg);display:flex;align-items:flex-start;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) 16px 24px;overflow:auto}
-.ob[hidden]{display:none}
-.ob-card{width:min(520px,100%);display:flex;flex-direction:column;gap:16px;margin-block:auto;padding-block:8px}
-.ob-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
-.ob-prog{height:8px;border-radius:var(--r-sm);background:var(--line);overflow:hidden}
-.ob-prog i{display:block;height:100%;background:var(--accent);border-radius:var(--r-sm)}
-@media (prefers-reduced-motion:no-preference){.ob-prog i{transition:width .3s}}
-.ob h1{font-size:clamp(26px,7vw,32px);line-height:1.15;margin:4px 0 0;letter-spacing:-.02em}
-.ob p{margin:0;color:var(--muted);font-size:16px}
-.btn.big{min-height:56px;font-size:17px;width:100%;border-radius:var(--r)}
-.ob .link{background:none;border:0;color:var(--muted);text-decoration:underline;min-height:44px;padding:0 4px;cursor:pointer;font-size:14px}
-.ob .link:hover{color:var(--fg)}
-.ob-or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px}
-.ob-or::before,.ob-or::after{content:"";flex:1;height:1px;background:var(--line)}
-.ob-in{width:100%;min-height:56px;padding:0 16px;font-size:17px;border:2px solid var(--line);border-radius:var(--r);background:var(--surface)}
-.ob-in:focus{border-color:var(--accent);outline:0}
-.ob-res{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.ob-res button,.ob-opt{display:flex;flex-direction:column;align-items:flex-start;gap:2px;width:100%;text-align:left;min-height:60px;padding:12px 16px;border:2px solid var(--line);border-radius:var(--r);background:var(--surface);cursor:pointer;font-size:17px}
-.ob-res button:hover,.ob-opt:hover{border-color:var(--accent)}
-.ob-res small,.ob-opt span{color:var(--muted);font-size:14px}
-.ob-opt{gap:4px;padding:16px}
-.ob-opt b{font-size:18px}
-.ob-opt.rec{border-color:var(--accent)}
-.ob-opt .rb{font-size:12px;font-weight:600;color:var(--accent)}
-.ob .note{margin:0;min-height:18px}
-.ob-done{width:72px;height:72px;border-radius:var(--r);background:var(--go);display:grid;place-items:center;margin:8px auto 0}
-.ob-done svg{width:46px;height:46px;stroke:#fff;fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
-@media (prefers-reduced-motion:no-preference){.ob-done{animation:pop .4s ease-out}.ob-done path{stroke-dasharray:60;animation:draw .5s .2s ease-out both}}
-@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:none;opacity:1}}
-@keyframes draw{from{stroke-dashoffset:60}to{stroke-dashoffset:0}}
-.ob-sum{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
-.ob-sum li{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;font-size:16px}
-.ob-sum li+li{border-top:1px solid var(--line)}
-.ob-sum span{color:var(--muted)}
-.ob-center{text-align:center}
 
 /* a11y + dialogs + data controls */
 .skip{position:absolute;left:-9999px;top:8px;z-index:200;background:var(--fg);color:var(--bg);padding:12px 16px;border-radius:var(--r);font-weight:600}
 .skip:focus{left:16px}
 .cell.stop{background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.32) 0 3px,transparent 3px 7px)}
 .cell.caution{background-image:radial-gradient(rgba(0,0,0,.35) 1.3px,transparent 1.7px);background-size:6px 6px}
-.ob-in:focus{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 35%,transparent)}
 .linkbtn{background:none;border:0;padding:10px 0;min-height:44px;color:var(--accent);text-decoration:underline;cursor:pointer;font-size:12px}
 .btn.danger{color:var(--crit);border-color:var(--crit)}
 .dsec{display:flex;flex-direction:column;gap:8px;padding-top:4px}
@@ -365,66 +318,34 @@ input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 
 .cell{border-radius:2px}
 .skel i{border-radius:var(--r)}
 /* tabs: underline style */
-/* theme switch */
-.themesw{display:inline-flex;align-items:center;justify-content:center;background:none;border:0;padding:0 2px;cursor:pointer;min-height:var(--ctl-sm);border-radius:var(--r-sm)}
-.themesw .tk{position:relative;display:block;width:52px;height:26px;border:1px solid var(--border-strong);border-radius:var(--r-sm);background:var(--surface-3)}
-.themesw .th{position:absolute;left:2px;top:2px;width:22px;height:20px;border-radius:3px;background:var(--accent);transition:transform var(--ease)}
-.themesw[aria-checked="true"] .th{transform:translateX(24px)}
 /* backup chip */
 .bk-chip{border:1px solid var(--border-strong);border-radius:var(--r-sm);background:var(--surface);color:var(--muted);cursor:pointer;white-space:nowrap;font-weight:500}
 .bk-chip:hover{background:var(--surface-2);color:var(--fg)}
 .bk-chip.warn{border-color:color-mix(in srgb,var(--warn) 55%,transparent);background:color-mix(in srgb,var(--warn) 14%,var(--surface));color:var(--fg)}
-.bkdot{display:none;width:8px;height:8px;border-radius:2px;background:var(--warn);margin-left:6px}
-/* menus */
-.panel-set{border-radius:var(--r);box-shadow:var(--shadow-pop);padding:10px;gap:10px}
-.panel-set.data{width:min(340px,calc(100vw - 32px));gap:6px}
-.dm-item{display:flex;flex-direction:column;align-items:flex-start;gap:1px;width:100%;text-align:left;min-height:48px;padding:8px 10px;border:0;border-radius:var(--r-sm);background:none;cursor:pointer;color:var(--fg)}
-.dm-item:hover,.dm-item:focus-visible{background:var(--surface-2)}
-.dm-item b{font-weight:550;font-size:13.5px}
-.dm-item span{font-size:12px;color:var(--muted);font-weight:400}
-.dm-item.danger b{color:var(--crit)}
-.dm-sep{height:1px;background:var(--line);margin:2px 0}
-.dm-foot{font-size:12px;color:var(--muted);padding:6px 10px 2px;display:flex;flex-direction:column;gap:2px}
-.dm-foot .linkbtn{align-self:flex-start;padding:6px 0;min-height:32px}
 kbd{font:11px var(--font-data);border:1px solid var(--border-strong);border-radius:3px;padding:0 4px;margin-left:6px;background:var(--surface-2);color:var(--muted)}
-.btn.primary kbd{background:transparent;color:inherit;border-color:currentColor;opacity:.8}
-.dm-save{width:100%;justify-content:space-between}
-/* dialogs, toast, onboarding */
+/* dialogs, toast */
 dialog{border-radius:8px;box-shadow:var(--shadow-pop)}
 dialog::backdrop{background:rgba(10,12,16,.5)}
 .dlg h2{font-size:17px}
 .toast{border-radius:var(--r)}
-.ob-prog,.ob-prog i{border-radius:2px}
-.ob-prog{height:4px}
-.ob-in,.ob-res button,.ob-opt,.ob-sum,.btn.big{border-radius:var(--r)}
-.ob-in,.ob-res button,.ob-opt{border-width:1px;border-color:var(--border-strong)}
-.ob-in:focus{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.ob-res button:hover,.ob-opt:hover{border-color:var(--accent)}
-.ob-opt.rec{border-color:var(--accent);background:var(--accent-soft)}
-.ob h1{font-size:clamp(22px,6vw,26px)}
-.ob p{font-size:15px}
-.ob-done{animation:none!important}.ob-done path{animation:none!important;stroke-dasharray:none!important}
-.ob .seg{max-width:260px}
-.fld .seg button{min-height:var(--ctl)}
 /* tables and map */
 th{background:var(--surface-2)}
 tbody tr:hover td{background:var(--hover-band)}
 #map{border-radius:var(--r);isolation:isolate;z-index:0}
 .leaflet-container{font-family:var(--font-ui)}
 /* mobile bottom nav */
-@media(max-width:520px){.bk-chip{display:none}.stale .bkdot{display:inline-block}}
-@media(pointer:coarse),(max-width:700px){.themesw,.page-bar .btn,.page-bar .bk-chip,.search input{min-height:44px}.linkbtn{min-height:44px}}
+@media(pointer:coarse),(max-width:700px){.search input{min-height:44px}.linkbtn{min-height:44px}}
 @media print{.page-bar{position:static;box-shadow:none}}
 /* mobile feel */
 html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
 body{overscroll-behavior-y:none}
 *{-webkit-tap-highlight-color:transparent}
 button,a,select,summary,label,input[type=checkbox],input[type=range]{touch-action:manipulation}
-.scroll,.hours,.results,.panel-set{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+.scroll,.hours,.results,.mb-dm{-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
 .btn,.bnav button,.bn-sheet button,.results button{transition:background-color .12s,color .12s,transform .1s}
 @media (pointer:coarse){
   .btn:active,.bnav button:active,.bn-sheet button:active,.results button:active{transform:scale(.97)}
-  input,select,textarea,.search input,.date,.rule input[type=number],.fld .btn,.fld select{font-size:16px}
+  input,select,textarea,.search input,.date,.rule input[type=number],.mb-set select{font-size:16px}
 }
 @media (prefers-reduced-motion:no-preference){
   .panel:not([hidden]){animation:pin .22s ease-out}
@@ -503,9 +424,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .seg button[aria-pressed="true"]{background:var(--grad);color:#fff}
 .pk{border-radius:999px}
 .pk[aria-pressed="true"]{background:var(--grad);border-color:transparent;color:#fff}
-.themesw .tk{border-radius:999px}
-.themesw .th{border-radius:999px;background:var(--grad)}
-.ob-prog i{background:var(--grad-bright)}
 
 /* surfaces */
 .card{border-radius:20px;padding:18px}
@@ -513,7 +431,6 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .sbox{border-radius:14px}
 .verdict,.win,.alert{border-radius:14px}
 dialog{border-radius:20px}
-.panel-set{border-radius:18px}
 .toast{border-radius:14px}
 .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 12px;border-radius:14px;border-left:1px solid var(--line)}
 .chip::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--go);box-shadow:0 0 0 3px color-mix(in srgb,var(--go) 22%,transparent)}
@@ -608,7 +525,7 @@ dialog{border-radius:20px}
   --ctl:38px; --ctl-sm:32px;
   --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:20px; --sp-6:24px;
   --ease:120ms ease;
-  /* page width: every app's header and content share one container (mbmoney.online's) */
+  /* page width: every app's header and content share one container (1280px) */
   --page-max:1280px; --gutter:16px;
   /* neutrals */
   --bg:#f3f4f6; --surface:#ffffff; --surface-2:#f6f7f9; --surface-3:#eceef2;
@@ -656,9 +573,8 @@ input[type=checkbox],input[type=radio],input[type=range],progress{accent-color:v
 .tabular,.num,time{font-variant-numeric:tabular-nums}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important;scroll-behavior:auto!important}}
 @media(pointer:coarse),(max-width:700px){:root{--ctl:44px;--ctl-sm:44px}}
-.tld{font-style:normal;color:var(--accent)}
 
-/* ---- MB SUITE v1 · mbweather.online adapter ----
+/* ---- MB SUITE v1 · Weather adapter ----
    Replaces the v1.4 glossy layer (glass bar, gradient buttons, 16–26px corners) with the family
    look. The condition-colored sky hero stays: it carries information, so it is this app's one
    signature component — squared off and without glass. */
@@ -671,7 +587,6 @@ body::before{display:none}
 body{background:var(--bg)}
 
 /* app bar: solid, accent line on top */
-.ob-prog i{background:var(--accent)}
 
 /* controls: solid fills, squared */
 .btn{border-radius:var(--r-sm);border-color:var(--border-strong)}
@@ -685,15 +600,12 @@ body{background:var(--bg)}
 .seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
 .pk{border-radius:var(--r-sm)}
 .pk[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
-.themesw .tk{border-radius:var(--r-sm)}
-.themesw .th{border-radius:3px;background:var(--accent)}
 
 /* surfaces */
 .card{border-radius:var(--r);padding:16px}
 .tile,.sbox,.verdict,.win,.alert{border-radius:var(--r-sm)}
 .tile{border:1px solid var(--border)}
 dialog{border-radius:var(--r-lg)}
-.panel-set{border-radius:var(--r)}
 .toast{border-radius:var(--r)}
 .chip{border-radius:var(--r-sm)}
 .chip::before{border-radius:2px;box-shadow:none}
@@ -712,8 +624,7 @@ dialog{border-radius:var(--r-lg)}
 .hero svg.big{filter:none}
 @media(max-width:620px){.hero{border-radius:var(--r)}}
 /* phones: keep the header actions on one row (Settings no longer takes a full-width row) */
-.panel-set{border-radius:var(--r)}
-/* page width: same container as mbmoney.online (1280px, 16px gutters on every screen size) */
+/* page width: the suite container (1280px, 16px gutters on every screen size) */
 body{padding-left:0;padding-right:0}
 .wrap{max-width:var(--page-max);padding-left:max(var(--gutter),env(safe-area-inset-left));padding-right:max(var(--gutter),env(safe-area-inset-right))}
 
@@ -824,7 +735,7 @@ body{background:none}
 @media print{html{background:#fff}.cu-banner,.cu-art{display:none}}
 
 /* =====================================================================
-   MB SUITE v2 · mbweather.online adapter (loads after mb-suite-cutouts.css)
+   MB SUITE v2 · Weather adapter (loads after mb-suite-cutouts.css)
    Weather keeps its condition-colored sky hero (no home banner). It gets the page wash,
    gradient primary buttons and the onboarding progress fill.
    Navigation (sidebar, rail, bottom bar) is styled by the v3 block below; header and tab rules were removed in v1.7.
@@ -832,8 +743,6 @@ body{background:none}
 /* primary buttons: gradient (generic rule), hover feedback, flat disabled state */
 .btn.primary:hover:not([disabled]){filter:brightness(.94)}
 .btn.primary[disabled]{background:var(--surface-2)!important;color:var(--muted)!important;border-color:var(--border)!important;filter:none}
-/* onboarding progress fill */
-.ob-prog i{background:var(--g-bar)}
 </style>
 <style id="mb-suite-sidebar">
 /* =====================================================================
@@ -845,7 +754,7 @@ body{background:none}
    Markup (see v3-updates/demo/index.html for a working page):
    <body class="mb-shell">
      <aside class="mb-side" aria-label="App">
-       <a class="brand" href="./" aria-label="mbname.online: go to Home"> .logo + .bt(b + span) </a>
+       <a class="brand" href="./" aria-label="Money (money.mcbflow.com): go to Home"> .logo + .bt(b + span) </a>
        <nav class="side-nav" aria-label="Sections"> <button aria-current="page"><svg class="uic"/><span>Home</span></button> … </nav>
        <nav class="side-nav side-end" aria-label="More"> Settings / Help items (optional) </nav>
      </aside>
@@ -997,11 +906,11 @@ dialog.mb-share::backdrop{background:var(--scrim)}
 /* v2 banner on phones: keep the text column clear of the art */
 @media (max-width:600px){:where(.cu-banner) .cu-txt{max-width:54%}}   /* same as the v2 adapters; low specificity so an adapter can override */
 </style>
-<style id="mbweather-v3">
+<style id="weather-v3">
 /* =====================================================================
-   MB SUITE v3.2 · mbweather.online adapter (loads after mb-suite-sidebar.css and mb-suite-v3.css;
+   MB SUITE v3.3 · Weather adapter (loads after mb-suite-sidebar.css and mb-suite-v3.css;
    mb-suite-topbar.css loads after this and draws the bar controls)
-   v1.9: the page bar is the standard single 56px bar (Search · backup chip · Data · theme · Settings).
+   v1.12: the page bar is the standard single 56px bar (Search · backup chip · Data · theme · account).
    The place field, Locate and Set as home live in the location row at the top of the page,
    above the sky hero, on every section.
    ===================================================================== */
@@ -1083,12 +992,67 @@ dialog.mb-share::backdrop{background:var(--scrim)}
 /* share dialog: the app's .sm class is small muted text, so give the close button normal button text */
 .mb-share .ms-head .btn{font-size:13.5px;color:var(--ink)}
 .mb-share-btn{gap:6px}
-/* first-run welcome: NA-09 Sun & Cloud around the badge (art is static and decorative) */
-.ob-art{position:relative;width:132px;margin:0 auto -4px}
-.ob-art .cu-art{--cu-w:132px}
-.ob-art .logo{position:absolute;inset:0;margin:auto;width:44px;height:44px}
-.ob-art .logo svg{display:block;width:100%;height:100%}
-@media (max-height:640px){.ob-art{display:none}}
+
+/* ---------- v1.12 · MB Suite v3.3 ---------- */
+/* chart series from the accent (s1 accent, s2 ochre, s3 accent tint, s4 slate); -ink variants for text */
+:root{--s1:var(--accent);--s2:#b07a1f;--s2-ink:#8a5a00;--s3:#6fb0db;--s3-ink:#2b78a8;--s4:#6b7684}
+:root[data-theme="dark"]{--s2:#d9a24a;--s2-ink:#e3b465;--s3:#9fd3f2;--s3-ink:#9fd3f2;--s4:#8a94a1}
+.range i{background:linear-gradient(90deg,var(--s3),var(--s2))}
+.range{cursor:pointer}
+.range:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.range.tipon{box-shadow:0 0 0 2px var(--accent-line)}
+.legend{align-items:center}
+.legend i.dash{background:repeating-linear-gradient(90deg,currentColor 0 4px,transparent 4px 7px)}
+.chbox{position:relative;display:block;border-radius:var(--r-sm);touch-action:pan-y;cursor:crosshair;-webkit-user-select:none;user-select:none}
+.chbox:focus{outline:none}
+.chbox:focus-visible{box-shadow:0 0 0 2px var(--accent)}
+.chart text{font-size:10.5px}
+.chart .tlab{font:600 10.5px var(--font);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+.chart .bar{transition:opacity .12s ease}
+.chart.reading .bar:not(.on){opacity:.45}
+.nowc .bar{fill:#fff;opacity:.38}
+.nowc .bar.wet{opacity:.95}
+.nowc.reading .bar:not(.on){opacity:.22}
+.nowc.reading .bar.on{opacity:1}
+.now .chbox{flex:none;width:120px;cursor:pointer}
+.now .chbox:focus-visible{box-shadow:0 0 0 2px #fff}
+.ctip{position:fixed;z-index:1100;pointer-events:none;display:flex;flex-direction:column;gap:1px;max-width:260px;padding:6px 10px;
+  background:var(--surface);color:var(--ink);border:1px solid var(--border);border-radius:8px;box-shadow:var(--shadow-pop);font-size:12px;line-height:1.35}
+.ctip[hidden]{display:none!important}
+.ctip b{font-size:14.5px;font-weight:650}
+.ctip span{color:var(--muted)}
+.charthint{margin-left:auto;font-size:11.5px;font-weight:500;color:var(--muted);text-transform:none;letter-spacing:0}
+@media (hover:none){.charthint{font-size:0}.charthint::after{content:attr(data-touch);font-size:11.5px}}
+[data-tip]{cursor:pointer}
+.sgrid:has(.cell.tipon) .cell:not(.tipon):not(.void){opacity:.45}
+.cell.tipon{outline:2px solid var(--ink);outline-offset:1px;position:relative;z-index:1}
+/* Settings view: no place row, sky hero or page footer */
+body[data-view="settings"] .loc-row,body[data-view="settings"] #locHint,body[data-view="settings"] #hero,
+body[data-view="settings"] #panels>:not(.panel),body[data-view="settings"] #credits,body[data-view="settings"] #mbFoot{display:none!important}
+#panel-settings select.btn{min-width:150px}
+#panel-settings .mb-set-l label{cursor:pointer}
+/* greeting: first line of the sky hero, on Home only */
+.hero .mb-greet{margin:0 0 6px;color:#fff;opacity:.92}
+body:not([data-view="overview"]) .hero .mb-greet{display:none}
+/* Data menu below its button on wider screens (phones: the shared bottom sheet) */
+.setwrap>.mb-dm{position:absolute;right:0;top:calc(100% + 6px)}
+#credits{margin:6px 0 0}
+#credits+.mb-foot{margin-top:4px}
+.bn-sheet button{display:flex;align-items:center;gap:10px}
+.bn-sheet .uic{flex:none;width:18px;height:18px;opacity:.8}
+/* welcome: place search results, alerts row */
+.mbw h2{text-transform:none;letter-spacing:-.01em}
+.mbw-res{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px}
+.mbw-res:empty{display:none}
+.mbw-choice>svg{flex:none;width:20px;height:20px;margin-top:1px;color:var(--accent)}
+.mbw-choice:disabled{opacity:.6;cursor:progress}
+.mbw-msg{margin-top:8px;min-height:1.2em}
+.mbw-alerts{display:flex;align-items:center;gap:12px;margin-top:14px;padding:12px;border:1px solid var(--border);border-radius:var(--r)}
+.mbw-alerts>svg{flex:none;width:20px;height:20px;color:var(--accent)}
+.mbw-alerts>span{flex:1;min-width:0}
+.mbw-alerts b{display:block;font-size:14px}
+.mbw-alerts small{display:block;margin-top:2px;font-size:12.5px;color:var(--muted)}
+@media (max-width:420px){.mbw-alerts{flex-wrap:wrap}.mbw-alerts .mbw-btn{width:100%}}
 </style>
 
 <!-- release tags added by mb-release 2026-10-14 -->
@@ -1098,85 +1062,65 @@ dialog.mb-share::backdrop{background:var(--scrim)}
 <body class="mb-shell">
 <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;width:0;height:0;overflow:hidden"><defs><radialGradient id="wxSun" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#fff2b4"/><stop offset=".55" stop-color="#ffc53f"/><stop offset="1" stop-color="#ff9a28"/></radialGradient><linearGradient id="wxCloud" gradientUnits="userSpaceOnUse" x1="0" y1="10" x2="0" y2="38"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#bfd3ec"/></linearGradient><linearGradient id="wxMoon" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbfcff"/><stop offset="1" stop-color="#b7c6ea"/></linearGradient><linearGradient id="wxBolt" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe985"/><stop offset="1" stop-color="#ffab1f"/></linearGradient></defs></svg>
 <a class="skip" href="#panels">Skip to forecast</a>
-<div class="ob" id="ob" role="dialog" aria-modal="true" aria-labelledby="obTitle" hidden></div>
+<div class="mbw" id="ob" role="dialog" aria-modal="true" aria-labelledby="mbwT0" hidden>
+  <div class="mbw-card">
+    <header class="mbw-head">
+      <span class="mbw-step" id="mbwStep">Step 1 of 4</span>
+      <span class="mbw-head-a"><span id="mbwAcct"></span><button class="mbw-link" type="button" id="mbwSkip">Skip</button></span>
+      <div class="mbw-prog" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+    </header>
+    <div class="mbw-body" data-step="0">
+      <div class="mbw-hero"><span class="mbw-logo"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="mbwe-w-g25" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#2595cf"/><stop offset=".55" stop-color="#0284C7"/><stop offset="1" stop-color="#026a9f"/></linearGradient><clipPath id="mbwe-w-c25"><rect width="64" height="64" rx="18"/></clipPath><linearGradient xlink:href="#mbwe-w-g25" id="mbwe-w-linearGradient5" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"/></defs><g clip-path="url(#mbwe-w-c25)"><rect width="64" height="64" fill="url(#mbwe-w-g25)"/><g transform="translate(-0.66503232,1.1221731)"><circle cx="41" cy="22.5" r="10" fill="#ffffff" fill-opacity="0.55"/><path d="M 21.5,47 H 43 A 8.005623,8.005623 0 0 0 43.6,31 11,11 0 0 0 22.4,28.8 9.2,9.2 0 0 0 21.5,47 Z" fill="url(#mbwe-w-g25)" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="fill:url(#mbwe-w-linearGradient5)"/></g></g></svg></span><div><h2 id="mbwT0">Welcome to Weather</h2><p class="mbw-lead">A forecast that tells you what to do: when it rains, when it&rsquo;s nice out, and what&rsquo;s coming.</p></div></div>
+      <ul class="mbw-feats">
+        <li><span class="mbw-ic"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg></span><div><b>Home</b><span>Now, today and 10 days, with a rain countdown and an outdoor score.</span></div></li>
+        <li><span class="mbw-ic"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></span><div><b>Hourly</b><span>Hour by hour for 36 hours, plus 72-hour temperature and wind charts.</span></div></li>
+        <li><span class="mbw-ic"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/></svg></span><div><b>Map</b><span>Live radar and forecast layers for wind, gusts, temperature, rain and clouds.</span></div></li>
+        <li><span class="mbw-ic"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span><div><b>Plan</b><span>Good hours for your activity, what to wear, air quality, sun and tides.</span></div></li>
+      </ul>
+      <p class="mbw-privacy"><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>No account needed. Your places and settings stay in this browser on this device unless you sign in to sync. Forecasts are looked up for the places you choose (and your location, if you allow it). <button type="button" data-about-go="privacy">Privacy</button></span></p>
+    </div>
+    <div class="mbw-body" data-step="1" hidden>
+      <h2 id="mbwT1">Pick a look</h2><p class="mbw-lead">You can switch anytime from the top bar or Settings.</p>
+      <div class="mbw-looks" role="group" aria-label="Theme">
+        <button type="button" class="mbw-look" data-theme-set="light" aria-pressed="true"><span class="pv l" aria-hidden="true"><b class="a"></b><b></b><b></b></span><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg> Light</button>
+        <button type="button" class="mbw-look" data-theme-set="dark" aria-pressed="false"><span class="pv d" aria-hidden="true"><b class="a"></b><b></b><b></b></span><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg> Dark</button>
+      </div>
+    </div>
+    <div class="mbw-body" data-step="2" hidden></div>
+    <div class="mbw-body" data-step="3" hidden></div>
+    <footer class="mbw-foot"><button class="mbw-btn" type="button" id="mbwBack" hidden><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>Back</button><button class="mbw-btn pri" type="button" id="mbwNext">Next</button></footer>
+  </div>
+</div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
-<input type="file" id="importFile" accept="application/json,.json" hidden>
+<input type="file" id="importFile" accept="application/json,.json,application/zip,.zip" hidden>
 <aside class="mb-side" aria-label="App">
-  <a class="brand" href="./" aria-label="weather.mcbflow.com: go to Overview"><span class="logo"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="mbwe-s-g25" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#2595cf"/><stop offset=".55" stop-color="#0284C7"/><stop offset="1" stop-color="#026a9f"/></linearGradient><clipPath id="mbwe-s-c25"><rect width="64" height="64" rx="18"/></clipPath><linearGradient xlink:href="#mbwe-s-g25" id="mbwe-s-linearGradient5" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"/></defs><g clip-path="url(#mbwe-s-c25)"><rect width="64" height="64" fill="url(#mbwe-s-g25)"/><g transform="translate(-0.66503232,1.1221731)"><circle cx="41" cy="22.5" r="10" fill="#ffffff" fill-opacity="0.55"/><path d="M 21.5,47 H 43 A 8.005623,8.005623 0 0 0 43.6,31 11,11 0 0 0 22.4,28.8 9.2,9.2 0 0 0 21.5,47 Z" fill="url(#mbwe-s-g25)" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="fill:url(#mbwe-s-linearGradient5)"/></g></g></svg></span><span class="bt"><b>weather<i class="tld">.mcbflow.com</i></b><span>Official Web App · v1.11</span></span></a>
+  <a class="brand" href="./" aria-label="Weather (weather.mcbflow.com): go to Home"><span class="logo"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="mbwe-s-g25" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#2595cf"/><stop offset=".55" stop-color="#0284C7"/><stop offset="1" stop-color="#026a9f"/></linearGradient><clipPath id="mbwe-s-c25"><rect width="64" height="64" rx="18"/></clipPath><linearGradient xlink:href="#mbwe-s-g25" id="mbwe-s-linearGradient5" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"/></defs><g clip-path="url(#mbwe-s-c25)"><rect width="64" height="64" fill="url(#mbwe-s-g25)"/><g transform="translate(-0.66503232,1.1221731)"><circle cx="41" cy="22.5" r="10" fill="#ffffff" fill-opacity="0.55"/><path d="M 21.5,47 H 43 A 8.005623,8.005623 0 0 0 43.6,31 11,11 0 0 0 22.4,28.8 9.2,9.2 0 0 0 21.5,47 Z" fill="url(#mbwe-s-g25)" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="fill:url(#mbwe-s-linearGradient5)"/></g></g></svg></span><span class="bt"><b>Weather<i class="tld"><span class="sep" aria-hidden="true">∙</span>mcbflow.com</i></b><span>Official Web App · v1.12</span></span></a>
   <nav class="side-nav" id="tabs" aria-label="Sections">
-      <button type="button" data-tab="overview" aria-current="page"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.2"/><path d="M9 2.5v1.6M2.5 9h1.6M4.4 4.4l1.1 1.1M13.6 4.4l-1.1 1.1"/><path d="M8 20h9a3.5 3.5 0 0 0 .4-7 5 5 0 0 0-9.6 1.3A3 3 0 0 0 8 20z"/></svg><span>Overview</span></button>
-      <button type="button" data-tab="hourly"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span>Hourly</span></button>
-      <button type="button" data-tab="map"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/></svg><span>Map</span></button>
-      <button type="button" data-tab="life"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><span>Plan</span></button>
-      <button type="button" class="pro" data-tab="compare"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="4" width="7" height="16" rx="1.5"/><rect x="13.5" y="4" width="7" height="16" rx="1.5"/></svg><span>Compare</span></button>
-      <button type="button" class="pro" data-tab="field"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg><span>Field &amp; air</span></button>
+      <button type="button" data-tab="overview" aria-current="page"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span>Home</span></button>
+      <button type="button" data-tab="hourly"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span>Hourly</span></button>
+      <button type="button" data-tab="map"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/></svg><span>Map</span></button>
+      <button type="button" data-tab="life"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><span>Plan</span></button>
+      <button type="button" class="pro" data-tab="compare"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="4" width="7" height="16" rx="1.5"/><rect x="13.5" y="4" width="7" height="16" rx="1.5"/></svg><span>Compare</span></button>
+      <button type="button" class="pro" data-tab="field"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg><span>Field &amp; air</span></button>
   </nav>
-  <nav class="side-nav side-end" aria-label="More">
-      <button type="button" id="aboutSide"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.1"/></svg><span>About &amp; help</span></button>
+  <nav class="side-nav side-end" id="sideEnd" aria-label="Settings and help">
+      <button type="button" data-tab="settings"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19.00 10.32 L21.51 10.72 L21.51 13.28 L19.00 13.68 L18.14 15.76 L19.63 17.82 L17.82 19.63 L15.76 18.14 L13.68 19.00 L13.28 21.51 L10.72 21.51 L10.32 19.00 L8.24 18.14 L6.18 19.63 L4.37 17.82 L5.86 15.76 L5.00 13.68 L2.49 13.28 L2.49 10.72 L5.00 10.32 L5.86 8.24 L4.37 6.18 L6.18 4.37 L8.24 5.86 L10.32 5.00 L10.72 2.49 L13.28 2.49 L13.68 5.00 L15.76 5.86 L17.82 4.37 L19.63 6.18 L18.14 8.24Z"/><circle cx="12" cy="12" r="3"/></svg><span>Settings</span></button>
+      <button type="button" id="aboutSide" data-about-go="help"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M9.3 9.3a2.8 2.8 0 1 1 3.9 2.6c-.7.3-1.2 1-1.2 1.8v.6"/><path d="M12 17.3h.01"/></svg><span>Help</span></button>
   </nav>
 </aside>
 <div class="mb-main">
 <header class="page-bar" id="top">
-  <a class="brand phone-brand" href="./" aria-label="weather.mcbflow.com: go to Overview"><span class="logo"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="mbwe-p-g25" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#2595cf"/><stop offset=".55" stop-color="#0284C7"/><stop offset="1" stop-color="#026a9f"/></linearGradient><clipPath id="mbwe-p-c25"><rect width="64" height="64" rx="18"/></clipPath><linearGradient xlink:href="#mbwe-p-g25" id="mbwe-p-linearGradient5" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"/></defs><g clip-path="url(#mbwe-p-c25)"><rect width="64" height="64" fill="url(#mbwe-p-g25)"/><g transform="translate(-0.66503232,1.1221731)"><circle cx="41" cy="22.5" r="10" fill="#ffffff" fill-opacity="0.55"/><path d="M 21.5,47 H 43 A 8.005623,8.005623 0 0 0 43.6,31 11,11 0 0 0 22.4,28.8 9.2,9.2 0 0 0 21.5,47 Z" fill="url(#mbwe-p-g25)" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="fill:url(#mbwe-p-linearGradient5)"/></g></g></svg></span><span class="bt"><b>weather<i class="tld">.mcbflow.com</i></b><span>Official Web App · v1.11</span></span></a>
-  <h1 class="page-title" id="pageTitle">Overview</h1>
+  <a class="brand phone-brand" href="./" aria-label="Weather (weather.mcbflow.com): go to Home"><span class="logo"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="mbwe-p-g25" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#2595cf"/><stop offset=".55" stop-color="#0284C7"/><stop offset="1" stop-color="#026a9f"/></linearGradient><clipPath id="mbwe-p-c25"><rect width="64" height="64" rx="18"/></clipPath><linearGradient xlink:href="#mbwe-p-g25" id="mbwe-p-linearGradient5" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"/></defs><g clip-path="url(#mbwe-p-c25)"><rect width="64" height="64" fill="url(#mbwe-p-g25)"/><g transform="translate(-0.66503232,1.1221731)"><circle cx="41" cy="22.5" r="10" fill="#ffffff" fill-opacity="0.55"/><path d="M 21.5,47 H 43 A 8.005623,8.005623 0 0 0 43.6,31 11,11 0 0 0 22.4,28.8 9.2,9.2 0 0 0 21.5,47 Z" fill="url(#mbwe-p-g25)" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="fill:url(#mbwe-p-linearGradient5)"/></g></g></svg></span><span class="bt"><b>Weather<i class="tld"><span class="sep" aria-hidden="true">∙</span>mcbflow.com</i></b><span>Official Web App · v1.12</span></span></a>
+  <h1 class="page-title" id="pageTitle">Home</h1>
   <div class="actions">
-      <button class="tb tb-search tb-opt" id="findBtn" type="button" aria-label="Search for a place" title="Search for a town or ZIP (press /)"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span class="tb-lbl">Search…</span><kbd>/</kbd></button>
+      <button class="tb tb-search tb-opt" id="findBtn" type="button" aria-label="Search for a place" title="Search for a town or ZIP (press /)"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6"/><path d="m15 15 5 5"/></svg><span class="tb-lbl">Search…</span><kbd>/</kbd></button>
       <button class="bk-chip tb-chip" id="bkChip" type="button" title="Save backup now">Never backed up</button>
       <div class="setwrap">
-        <button class="tb" id="dataBtn" type="button" aria-expanded="false" aria-controls="dataMenu" aria-label="Data menu"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span class="tb-lbl">Data</span><svg class="tb-chev" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg><span class="bkdot tb-dot" aria-hidden="true" hidden></span></button>
-        <div class="panel-set data" id="dataMenu" hidden>
-          <button class="btn primary dm-save" id="saveNow" type="button"><span>Save backup now</span><kbd id="saveKbd">Ctrl+S</kbd></button>
-          <button class="dm-item" id="syncBtn" type="button"><b id="dmSyncTitle">Sync across devices…</b><span id="dmSyncSub">Optional free account. Your settings stay on this device too</span></button>
-          <button class="dm-item" id="exportJson" type="button"><b>Export All (JSON)…</b><span>Home, settings and Windows limits. Choose where to save it.</span></button>
-          <button class="dm-item" id="importBtn" type="button"><b>Import Backup (JSON)…</b><span>Restore from a backup file</span></button>
-          <button class="dm-item" id="exportCsv" type="button"><b>Export Forecast (CSV)…</b><span>Hourly forecast for Excel or Sheets. Not re-importable.</span></button>
-          <div class="dm-sep"></div>
-          <button class="dm-item danger" id="wipeBtn" type="button"><b>Clear all data…</b><span>Removes your home, settings and saved forecasts from this browser</span></button>
-          <div class="dm-foot" id="bkStatus" aria-live="polite"></div>
-        </div>
+        <button class="tb" id="dataBtn" type="button" aria-haspopup="menu" aria-expanded="false" aria-controls="dataMenu" aria-label="Data: back up, sync, export or import"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5.5" rx="7" ry="2.5"/><path d="M5 5.5v13c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-13"/><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5"/></svg><span class="tb-lbl">Data</span><svg class="tb-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg><span class="tb-dot" aria-hidden="true" hidden></span></button>
+        <div class="mb-dm" id="dataMenu" role="menu" aria-label="Data" hidden></div>
       </div>
-      <button type="button" class="themesw" id="themeSw" role="switch" aria-checked="false" aria-label="Dark mode" title="Dark mode"><span class="tk"><svg class="i-sun" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="10" cy="10" r="3.2"/><path d="M10 2.5v1.8M10 15.7v1.8M2.5 10h1.8M15.7 10h1.8M4.7 4.7l1.3 1.3M14 14l1.3 1.3M4.7 15.3 6 14M14 6l1.3-1.3"/></svg><svg class="i-moon" viewBox="0 0 20 20" width="14" height="14" aria-hidden="true" fill="currentColor"><path d="M16.5 12.2A6.6 6.6 0 0 1 7.8 3.5a6.6 6.6 0 1 0 8.7 8.7Z"/></svg><i class="th"></i></span></button>
-      <div class="setwrap">
-        <button class="tb" id="settingsBtn" type="button" aria-expanded="false" aria-controls="settings" aria-label="Settings"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg><span class="tb-lbl">Settings</span></button>
-        <div class="panel-set" id="settings" hidden>
-          <section class="grp"><h4>Display</h4>
-            <div class="fld">View
-              <div class="seg"><button type="button" data-mode="everyday" aria-pressed="true">Everyday</button><button type="button" data-mode="pro" aria-pressed="false">Pro</button></div>
-            </div>
-          </section>
-          <section class="grp"><h4>Units</h4>
-            <div class="row2">
-              <label class="fld">Temperature<select class="btn" id="tu"><option value="F">°F</option><option value="C">°C</option></select></label>
-              <label class="fld">Wind<select class="btn" id="wu"><option value="mph">mph</option><option value="kn">knots</option><option value="kmh">km/h</option></select></label>
-            </div>
-          </section>
-          <section class="grp"><h4>Alerts</h4>
-            <button class="btn" id="notifyBtn" type="button">Turn on notifications</button>
-          </section>
-          <details class="fold adv"><summary>Advanced</summary>
-            <label class="fld">Forecast model
-              <select class="btn" id="model">
-                <option value="best_match">Best match</option>
-                <option value="ecmwf_ifs025">ECMWF IFS</option>
-                <option value="gfs_seamless">GFS (NOAA)</option>
-                <option value="icon_seamless">ICON (DWD)</option>
-                <option value="gem_seamless">GEM (Canada)</option>
-              </select>
-            </label>
-            <button class="btn" id="replay" type="button">Replay setup</button>
-          </details>
-          <div data-mb-install data-app-name="Weather" data-note="Opens in its own window with its own icon. With no signal it shows the last forecast it saved."></div>
-          <div class="mb-about" role="group" aria-label="About this app">
-            <svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
-            <div>
-              <b>weather.mcbflow.com™</b>
-              <p>Version 1.11 · Oct 15, 2026</p>
-              <p class="mb-about-links"><button type="button" data-about-go="privacy">Privacy</button><button type="button" data-about-go="terms">Terms</button><a href="https://mcbflow.com/">More free apps at mcbflow.com</a></p>
-              <p class="mb-about-copy">© 2026 Matthew Broyer. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <button type="button" class="themesw" id="themeSw" role="switch" aria-checked="false" aria-label="Dark mode"><span class="tk"><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><i class="th"></i></span></button>
+      <button type="button" class="tb tb-acct" id="acctBtn"></button>
   </div>
 </header>
 <div class="wrap">
@@ -1206,39 +1150,107 @@ dialog.mb-share::backdrop{background:var(--scrim)}
     </section>
   </div>
 
-  <footer class="foot">
-    <span id="stamp"></span>
-    <span>Forecasts are estimates and can be wrong. Weather data: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> (CC BY 4.0) · alerts: <a href="https://www.weather.gov/" target="_blank" rel="noopener noreferrer">NWS</a> · radar: <a href="https://www.rainviewer.com/" target="_blank" rel="noopener noreferrer">RainViewer</a> · <button class="linkbtn" id="aboutBtn" type="button">About, privacy and terms</button></span>
+
+  <div class="panel" id="panel-settings" role="region" aria-label="Settings" hidden>
+    <div class="mb-set">
+      <section class="mb-set-sec" aria-labelledby="setA"><h2 class="mb-set-h" id="setA">Appearance</h2>
+        <div class="mb-set-card"><div class="mb-set-row"><div class="mb-set-l"><b>Theme</b><small>Light or dark. Saved on this device.</small></div>
+          <div class="mb-set-c"><div class="mb-seg" role="group" aria-label="Theme"><button type="button" data-theme-set="light" aria-pressed="true"><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Light</button><button type="button" data-theme-set="dark" aria-pressed="false"><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>Dark</button></div></div></div></div>
+      </section>
+      <section class="mb-set-sec" aria-labelledby="setS"><h2 class="mb-set-h" id="setS">Account &amp; sync</h2>
+        <div class="mb-set-card pad" id="syncCard"><p class="sm" style="margin:0">Sync isn&rsquo;t available right now. Reload the page to try again. Your settings are safe on this device.</p></div>
+      </section>
+      <section class="mb-set-sec" aria-labelledby="setW"><h2 class="mb-set-h" id="setW">Weather settings</h2>
+        <div class="mb-set-card">
+          <div class="mb-set-row"><div class="mb-set-l"><b>View</b><small>Everyday shows the essentials. Pro adds Compare, Field &amp; air and extra columns.</small></div>
+            <div class="mb-set-c"><div class="mb-seg" role="group" aria-label="View" id="modeSeg"><button type="button" data-mode="everyday" aria-pressed="true">Everyday</button><button type="button" data-mode="pro" aria-pressed="false">Pro</button></div></div></div>
+          <div class="mb-set-row"><div class="mb-set-l"><label for="tu"><b>Temperature</b></label><small>Also sets rain in inches or millimetres.</small></div>
+            <div class="mb-set-c"><select class="btn" id="tu"><option value="F">°F</option><option value="C">°C</option></select></div></div>
+          <div class="mb-set-row"><div class="mb-set-l"><label for="wu"><b>Wind speed</b></label><small>Used for wind, gusts and your Plan limits.</small></div>
+            <div class="mb-set-c"><select class="btn" id="wu"><option value="mph">mph</option><option value="kn">knots</option><option value="kmh">km/h</option></select></div></div>
+          <div class="mb-set-row"><div class="mb-set-l"><label for="model"><b>Forecast model</b></label><small>Best match picks the best model for your area.</small></div>
+            <div class="mb-set-c"><select class="btn" id="model">
+                <option value="best_match">Best match</option>
+                <option value="ecmwf_ifs025">ECMWF IFS</option>
+                <option value="gfs_seamless">GFS (NOAA)</option>
+                <option value="icon_seamless">ICON (DWD)</option>
+                <option value="gem_seamless">GEM (Canada)</option>
+              </select></div></div>
+          <div class="mb-set-row"><div class="mb-set-l"><b>Alert notifications</b><small>Official NWS alerts (US) and forecast warnings while this page is open.</small></div>
+            <div class="mb-set-c"><button class="btn" id="notifyBtn" type="button">Turn on notifications</button></div></div>
+          <div class="mb-set-row"><div class="mb-set-l"><b>Welcome screen</b><small>Run the first-run setup again: look, home location and view.</small></div>
+            <div class="mb-set-c"><button class="btn" id="replay" type="button">Show it again</button></div></div>
+        </div>
+      </section>
+      <section class="mb-set-sec" aria-labelledby="setD"><h2 class="mb-set-h" id="setD">Backup &amp; data</h2>
+        <div class="mb-set-card" id="setData" style="padding:8px 16px"></div>
+        <div class="mb-set-card" id="bkFileCard" hidden><div class="mb-set-row"><div class="mb-set-l"><b>Backup file</b><small id="bkFileTxt"></small></div><div class="mb-set-c"><button class="btn" id="bkMove" type="button">Change location…</button></div></div></div>
+      </section>
+      <section class="mb-set-sec" aria-labelledby="setI"><h2 class="mb-set-h" id="setI">Install</h2>
+        <div data-mb-install data-app-name="Weather" data-note="Opens in its own window with its own icon. With no signal it shows the last forecast it saved."></div>
+      </section>
+      <section class="mb-set-sec" aria-labelledby="setAb"><h2 class="mb-set-h" id="setAb">About</h2>
+        <div class="mb-about" role="group" aria-label="About this app"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><div>
+            <b>weather.mcbflow.com™</b>
+            <p>Version 1.12 · Oct 16, 2026</p>
+            <p class="mb-about-links"><button type="button" data-about-go="whatsnew">What’s new</button><button type="button" data-about-go="privacy">Privacy</button><button type="button" data-about-go="terms">Terms</button><button type="button" data-about-go="help">Help</button><a href="https://mcbflow.com/">More free apps at mcbflow.com</a></p>
+            <p class="mb-about-copy">© 2026 Matthew Broyer. All rights reserved.</p>
+          </div></div>
+      </section>
+    </div>
+  </div>
+
+  <p class="foot" id="credits"><span id="stamp"></span><span>Forecasts are estimates and can be wrong. Weather data: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a> (CC BY 4.0) · alerts: <a href="https://www.weather.gov/" target="_blank" rel="noopener noreferrer">NWS</a> · radar: <a href="https://www.rainviewer.com/" target="_blank" rel="noopener noreferrer">RainViewer</a></span></p>
+  <footer class="mb-foot" id="mbFoot">
+    <p class="mb-foot-main"><b>Weather</b> v1.12 · Free · No account needed</p>
+    <nav class="mb-foot-links" aria-label="About Weather"><button type="button" data-about-go="whatsnew">What’s new</button><button type="button" data-about-go="privacy">Privacy</button><button type="button" data-about-go="terms">Terms</button><a href="https://mcbflow.com/">More free apps</a></nav>
+    <p class="mb-foot-copy">© 2026 Matthew Broyer</p>
+    <p class="mb-foot-note">Not for safety-critical decisions. Follow official weather alerts.</p>
   </footer>
 </div>
 </div>
 
 <nav class="bnav" id="bnav" aria-label="Sections">
-  <button type="button" data-tab="overview" aria-current="page"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9" cy="9" r="3.2"/><path d="M9 2.5v1.6M2.5 9h1.6M4.4 4.4l1.1 1.1M13.6 4.4l-1.1 1.1"/><path d="M8 20h9a3.5 3.5 0 0 0 .4-7 5 5 0 0 0-9.6 1.3A3 3 0 0 0 8 20z"/></svg><span>Overview</span></button>
-  <button type="button" data-tab="hourly"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span>Hourly</span></button>
-  <button type="button" data-tab="map"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/></svg><span>Map</span></button>
-  <button type="button" data-tab="life"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><span>Plan</span></button>
-  <button type="button" class="pro" id="bnMore" aria-expanded="false" aria-controls="bnSheet"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="5.5" cy="12" r="1.2" fill="currentColor"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/><circle cx="18.5" cy="12" r="1.2" fill="currentColor"/></svg><span>More</span></button>
+  <button type="button" data-tab="overview" aria-current="page"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3.5 11 12 4l8.5 7"/><path d="M5.5 9.5V20h13V9.5"/><path d="M10 20v-5.5h4V20"/></svg><span>Home</span></button>
+  <button type="button" data-tab="hourly"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg><span>Hourly</span></button>
+  <button type="button" data-tab="map"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 4 3 6.5v13L9 17l6 2.5 6-2.5v-13L15 6.5 9 4z"/><path d="M9 4v13M15 6.5v13"/></svg><span>Map</span></button>
+  <button type="button" data-tab="life"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></svg><span>Plan</span></button>
+  <button type="button" class="ev" data-tab="settings"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19.00 10.32 L21.51 10.72 L21.51 13.28 L19.00 13.68 L18.14 15.76 L19.63 17.82 L17.82 19.63 L15.76 18.14 L13.68 19.00 L13.28 21.51 L10.72 21.51 L10.32 19.00 L8.24 18.14 L6.18 19.63 L4.37 17.82 L5.86 15.76 L5.00 13.68 L2.49 13.28 L2.49 10.72 L5.00 10.32 L5.86 8.24 L4.37 6.18 L6.18 4.37 L8.24 5.86 L10.32 5.00 L10.72 2.49 L13.28 2.49 L13.68 5.00 L15.76 5.86 L17.82 4.37 L19.63 6.18 L18.14 8.24Z"/><circle cx="12" cy="12" r="3"/></svg><span>Settings</span></button>
+  <button type="button" class="pro" id="bnMore" aria-expanded="false" aria-controls="bnSheet"><svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none" aria-hidden="true" focusable="false"><circle cx="5.5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="18.5" cy="12" r="1.7"/></svg><span>More</span></button>
 </nav>
 <div class="bn-sheet" id="bnSheet" hidden>
-  <button type="button" class="pro" data-tab="compare">Compare</button>
-  <button type="button" class="pro" data-tab="field">Field &amp; air</button>
+  <button type="button" data-tab="settings"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19.00 10.32 L21.51 10.72 L21.51 13.28 L19.00 13.68 L18.14 15.76 L19.63 17.82 L17.82 19.63 L15.76 18.14 L13.68 19.00 L13.28 21.51 L10.72 21.51 L10.32 19.00 L8.24 18.14 L6.18 19.63 L4.37 17.82 L5.86 15.76 L5.00 13.68 L2.49 13.28 L2.49 10.72 L5.00 10.32 L5.86 8.24 L4.37 6.18 L6.18 4.37 L8.24 5.86 L10.32 5.00 L10.72 2.49 L13.28 2.49 L13.68 5.00 L15.76 5.86 L17.82 4.37 L19.63 6.18 L18.14 8.24Z"/><circle cx="12" cy="12" r="3"/></svg>Settings</button>
+  <button type="button" class="pro" data-tab="compare"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3.5" y="4" width="7" height="16" rx="1.5"/><rect x="13.5" y="4" width="7" height="16" rx="1.5"/></svg>Compare</button>
+  <button type="button" class="pro" data-tab="field"><svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></svg>Field &amp; air</button>
 </div>
 
 <dialog id="about" aria-labelledby="aboutTitle"><div class="dlg">
-  <div class="dlg-top"><h2 id="aboutTitle">About, privacy and terms</h2><button class="btn" id="aboutClose" type="button">Close</button></div>
+  <div class="dlg-top"><h2 id="aboutTitle">Help, privacy and terms</h2><button class="btn" id="aboutClose" type="button">Close</button></div>
   <p>Updated October 14, 2026. weather.mcbflow.com is a free weather app made by an individual. It has no accounts, no ads, no analytics and no cookies.</p>
 
-  <h3>Help</h3>
+  <h3 id="about-help">Help</h3>
+  <p><b>How do I change my home location?</b> Search a town or ZIP (or tap Locate) at the top of the page, then tap Set home.</p>
+  <p><b>Where are the settings?</b> Settings (the gear) holds units, the forecast model, Everyday or Pro view, alert notifications, sync, backups and install.</p>
   <p><b>Can I install it like an app?</b> Yes. In Chrome or Edge, use the Install button in Settings (or the install icon in the address bar). On iPhone, tap Share, then Add to Home Screen.</p>
   <p><b>Does it work offline?</b> The app opens with no signal and shows the last forecast it saved (up to 24 hours old). Live data, radar and the street map need a connection. The simple outline map works offline.</p>
   <p><b>Do alerts arrive when the app is closed?</b> No. Alerts are only checked while the page is open.</p>
+
+  <h3 id="about-whatsnew">What’s new in 1.12</h3>
+  <ul>
+    <li>A real Settings page (the gear in the sidebar and the phone bottom bar), in the same order as the other mcbflow.com apps.</li>
+    <li>An account button in the top bar with your profile picture and screen name, a greeting on Home, and &ldquo;Keep me signed in on this device&rdquo;.</li>
+    <li>The same welcome screen as the other apps: pick a look, choose your forecast place, and Simple or Detailed view.</li>
+    <li>A clearer Data menu with Export All as JSON, CSV or ZIP. Export Forecast (CSV) is still there.</li>
+    <li>Quieter backup reminders while you&rsquo;re signed in and syncing.</li>
+    <li>Charts show the exact value, time and context when you hover, tap or use the arrow keys.</li>
+    <li>Overview is now called Home. New name style: Weather &bull; mcbflow.com.</li>
+  </ul>
 
   <h3 id="about-privacy">Privacy: what stays on your device</h3>
   <p>The app saves these in your browser's local storage, on your device only:</p>
   <ul>
     <li>Your home location (name and coordinates) and the place you are viewing.</li>
-    <li>Your settings: units, view, light or dark theme, forecast model, season start date, last tab.</li>
+    <li>Your settings: units, view, light or dark theme, forecast model, season start date, last tab, and whether to keep you signed in.</li>
     <li>Your limits for Windows (on the Plan tab).</li>
     <li>A list of alert IDs already notified, so you do not get repeats.</li>
     <li>A saved copy of the latest forecast for up to 3 places, so the app opens fast and can show a forecast up to 24 hours old when you have no signal. Older copies are replaced as you look up other places.</li>
@@ -1248,7 +1260,7 @@ dialog.mb-share::backdrop{background:var(--scrim)}
   </ul>
   <p><b>Share images.</b> The Share buttons on Today and the 10-day forecast draw a picture on your device. Nothing is uploaded. The place name is left off unless you turn it on, and coordinates are never included. Where the picture goes is up to you and your device's share sheet.</p>
   <p><b>Optional sync.</b> If you sign in with a free mcbflow.com account (Data → Sync), your home location, Windows limits and forecast settings (units, model, view, activity, season start) are also copied to your account so your other devices match. Your theme, last tab, notifications, the place you're viewing and saved forecasts are not synced. The account database is run by Supabase (servers in the eastern United States); only your account can read it. Sign out any time; this device keeps its data. Export or delete synced data on the <a href="https://mcbflow.com/account.html">mcbflow.com account page</a>; details in the <a href="https://mcbflow.com/#privacy">mcbflow.com privacy policy</a>.</p>
-  <p>Unless you sign in to sync, the developer does not receive any of this. Delete it any time in Data, Clear all data. Export and import are in the same Data menu. A backup file you saved stays where you put it until you delete it yourself.</p>
+  <p>Unless you sign in to sync, the developer does not receive any of this. Delete it any time in Data, Clear all data. Export and import are in the same Data menu (and in Settings, Backup &amp; data). A backup file you saved stays where you put it until you delete it yourself.</p>
 
   <h3>Privacy: what is sent to other services</h3>
   <p>The app has no server of its own. If you sign in to sync, it also contacts the mcbflow.com account service (Supabase), as described above. To work, your browser contacts these services directly. Each one sees your IP address and browser details, like any website, and each has its own privacy policy.</p>
@@ -1291,6 +1303,13 @@ dialog.mb-share::backdrop{background:var(--scrim)}
   <p id="wipeSync" hidden><b>You’re signed in to sync,</b> so your home, settings and Windows limits are also deleted from your account and your other devices. To clear only this browser, sign out first (Data → Sync).</p>
   <p class="sm">Notification permission is controlled by your browser. Revoke it in the browser's site settings if you want.</p>
   <div class="acts"><button class="btn" id="wipeNo" type="button">Cancel</button><button class="btn danger" id="wipeYes" type="button">Delete everything</button></div>
+</div></dialog>
+
+<dialog id="impDlg" aria-labelledby="impTitle"><div class="dlg">
+  <h2 id="impTitle">Restore this backup?</h2>
+  <p id="impTxt"></p>
+  <p class="sm">Your current home, settings and Windows limits on this device are replaced. Saved forecasts reload for the restored place.</p>
+  <div class="acts"><button class="btn" id="impNo" type="button">Cancel</button><button class="btn primary" id="impYes" type="button">Replace and restore</button></div>
 </div></dialog>
 
 <template id="obArt"><div class="ob-art" aria-hidden="true"><svg class="cu-art inline cu-p-soft" viewBox="0 0 320 320" preserveAspectRatio="xMidYMid meet" aria-hidden="true" focusable="false"><path class="r" transform="translate(244 160) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="b" transform="translate(232.7 202) rotate(30) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="r" transform="translate(202 232.7) rotate(60) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="b" transform="translate(160 244) rotate(90) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="r" transform="translate(118 232.7) rotate(120) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="b" transform="translate(87.3 202) rotate(150) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="r" transform="translate(76 160) rotate(180) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="b" transform="translate(87.3 118) rotate(210) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="r" transform="translate(118 87.3) rotate(240) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="b" transform="translate(160 76) rotate(270) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="r" transform="translate(202 87.3) rotate(300) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><path class="b" transform="translate(232.7 118) rotate(330) scale(0.4)" d="M0 0 C 24 -15 70 -17 104 0 C 70 17 24 15 0 0Z"/><circle class="b" cx="160" cy="160" r="64"/><g class="s" transform="translate(222 238) scale(1.1)"><rect x="-46" y="-6" width="92" height="26" rx="13"/><circle cx="-22" cy="-4" r="17"/><circle cx="6" cy="-14" r="24"/><circle cx="30" cy="0" r="16"/></g><g class="m" transform="translate(92 84) scale(0.8)"><rect x="-46" y="-6" width="92" height="26" rx="13"/><circle cx="-22" cy="-4" r="17"/><circle cx="6" cy="-14" r="24"/><circle cx="30" cy="0" r="16"/></g><path class="d" transform="translate(92 238) scale(0.7)" d="M0 -26 C7 -15 18 -5 18 6 A18 18 0 0 1 -18 6 C-18 -5 -7 -15 0 -26Z"/><path class="n" transform="translate(122 262) scale(0.6)" d="M0 -26 C7 -15 18 -5 18 6 A18 18 0 0 1 -18 6 C-18 -5 -7 -15 0 -26Z"/><path class="d" transform="translate(70 270) scale(0.5)" d="M0 -26 C7 -15 18 -5 18 6 A18 18 0 0 1 -18 6 C-18 -5 -7 -15 0 -26Z"/></svg><span class="logo"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><defs><linearGradient id="mbwe-o-g25" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"><stop offset="0" stop-color="#2595cf"/><stop offset=".55" stop-color="#0284C7"/><stop offset="1" stop-color="#026a9f"/></linearGradient><clipPath id="mbwe-o-c25"><rect width="64" height="64" rx="18"/></clipPath><linearGradient xlink:href="#mbwe-o-g25" id="mbwe-o-linearGradient5" gradientUnits="userSpaceOnUse" x1="10" y1="0" x2="54" y2="64"/></defs><g clip-path="url(#mbwe-o-c25)"><rect width="64" height="64" fill="url(#mbwe-o-g25)"/><g transform="translate(-0.66503232,1.1221731)"><circle cx="41" cy="22.5" r="10" fill="#ffffff" fill-opacity="0.55"/><path d="M 21.5,47 H 43 A 8.005623,8.005623 0 0 0 43.6,31 11,11 0 0 0 22.4,28.8 9.2,9.2 0 0 0 21.5,47 Z" fill="url(#mbwe-o-g25)" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" style="fill:url(#mbwe-o-linearGradient5)"/></g></g></svg></span></div></template>
@@ -1439,11 +1458,11 @@ dialog.mb-share::backdrop{background:var(--scrim)}
        sub: 'January to October 2026',              // one supporting line (optional)
        stats: [{ label: 'Months tracked', value: '10' }, { label: 'Savings rate', value: '22%' }],   // 0-3 (optional)
        art: document.querySelector('#share-art svg'),   // an NA-/CU- template <svg> already in the page (optional)
-       fileName: 'mbmoney-milestone.png',
+       fileName: 'money-milestone.png',
        options: [ { id: 'amounts', label: 'Show dollar amounts', value: false } ],   // optional privacy toggles
        build: function (opts) { return { headline: …, stats: … } }                  // re-builds the text when a toggle changes
      });
-   Requires on <html>: data-app-short="Money" and data-app-domain="mbmoney.online".
+   Requires on <html>: data-app-short="Money" and data-app-domain="money.mcbflow.com".
    The badge is read from the first ".brand .logo svg" in the page.
    CSP: needs img-src data: blob: (the art is drawn from a data: URL, the preview is a blob: URL). Inline it and recompute hashes if the app uses script hashes.
    ===================================================================== */
@@ -1514,8 +1533,9 @@ dialog.mb-share::backdrop{background:var(--scrim)}
       var x = 72, y = 92;
       if (imgs[0]) g.drawImage(imgs[0], x, y - 4, 72, 72);
       g.fillStyle = C.ink; g.font = '650 34px ' + FONT; g.textBaseline = 'middle';
-      var nm = domain.replace(/\.(online|mcbflow\.com)$/, ''), tld = domain.slice(nm.length); g.fillText(nm, x + 92, y + 32);
-      if (tld) { var nw = g.measureText(nm).width; g.fillStyle = C.accent; g.fillText(tld, x + 92 + nw, y + 32); }
+      g.fillText(app, x + 92, y + 32);   // v3.4 wordmark: "Money ∙ mcbflow.com" (short name, muted bullet, accent mcbflow.com)
+      var nw = g.measureText(app).width; g.font = '500 30px ' + FONT; g.fillStyle = C.muted; g.fillText('  ∙  ', x + 92 + nw, y + 32);
+      var bw = g.measureText('  ∙  ').width; g.fillStyle = C.accent; g.fillText('mcbflow.com', x + 92 + nw + bw, y + 32);
       // kicker + headline + sub
       g.textBaseline = 'alphabetic'; y = 300;
       if (d.kicker) { g.fillStyle = C.accent; g.font = '700 30px ' + FONT; g.fillText(String(d.kicker).toUpperCase(), x, y); y += 26; }
@@ -1554,7 +1574,7 @@ dialog.mb-share::backdrop{background:var(--scrim)}
       // footer: where it came from (this is what helps the app grow)
       g.fillStyle = C.ink2; g.font = '600 28px ' + FONT;
       g.fillText((d.date ? d.date + '  ·  ' : '') + 'Made with ' + domain, x, W - 64);
-      g.fillStyle = C.muted; g.font = '400 24px ' + FONT; g.fillText('Free · No account · Your data stays on your device', x, W - 30);
+      g.fillStyle = C.muted; g.font = '400 24px ' + FONT; g.fillText('Free · No account needed · No tracking', x, W - 30);   // true with or without the optional sync account
       return c;
     });
   }
@@ -1607,6 +1627,7 @@ dialog.mb-share::backdrop{background:var(--scrim)}
 })();
 </script>
 <script src="mb-sync.js"></script>
+<script src="mb-files.js"></script>
 <script>
 (function(){
 "use strict";
@@ -1710,6 +1731,8 @@ function setData(d,cached){
   I0=Math.max(0,d.hourly.time.indexOf(nowKey));
   D0=Math.max(0,d.daily.time.indexOf(dayKey));
 }
+/* the hero is redrawn often; park the greeting element first so mb-sync keeps updating it (it drops detached elements) */
+function heroHtml(h){if(GREET&&GREET.parentNode!==GHOLD)GHOLD.appendChild(GREET);$("#hero").innerHTML=h}
 function stampOf(ms){var d=new Date(ms),t=clockOf(ms);return d.toDateString()===new Date().toDateString()?t:d.toLocaleDateString("en-US",{weekday:"short"})+" "+t}
 function clockOf(ms){return new Date(ms).toLocaleTimeString("en-US",{hour:"numeric",minute:"2-digit"})}
 function load(silent){
@@ -1720,7 +1743,7 @@ function load(silent){
     if(c){
       nwsState={status:"loading",items:[]};setData(c.data,true);LOADED_AT=c.ts;SAVED="updating";render();shown=true;
       toast("Showing the forecast saved at "+clockOf(c.ts)+". Updating…");
-    }else{$("#hero").innerHTML="";$("#panels").innerHTML=skel(loc.name)}
+    }else{heroHtml("");$("#panels").innerHTML=skel(loc.name)}
   }
   fetch(apiUrl()).then(function(r){return r.json().then(function(j){if(!r.ok||j.error)throw new Error(j.reason||("HTTP "+r.status));return j})}).then(function(d){
     if(id!==reqId)return;
@@ -1734,7 +1757,7 @@ function load(silent){
       toast("Can't update right now. Showing the saved forecast.","Retry",function(){load()});return}
     var old=cacheGetAny();
     if(old){nwsState={status:"error",items:[]};setData(old.data,true);LOADED_AT=old.ts;SAVED="offline";render();toast("You're offline. Showing the forecast from "+stampOf(old.ts)+".","Retry",function(){load()});return}
-    $("#hero").innerHTML="";
+    heroHtml("");
     $("#panels").innerHTML='<div class="card status err"><p>'+(/limit|429/i.test(e.message)?"The free weather data service has reached its limit for now.":"Could not load the forecast.")+'</p><p class="sm">Check your connection, then try again.</p><button class="btn primary" id="retry" type="button">Try again</button>'+(prefs.model!=="best_match"?'<button class="btn" id="retryBest" type="button">Use Best match</button>':'')+'</div>';
     $("#retry").onclick=function(){load()};
     var rb=$("#retryBest");if(rb)rb.onclick=function(){prefs.model="best_match";savePrefs();$("#model").value="best_match";load()};
@@ -1887,7 +1910,8 @@ function drawWork(){
     var k=I0+i,e=evalHour(k),dt=e.h.time.slice(0,10),hh=hourOf(e.h.time);
     if(!rows[dt]){rows[dt]=[];order.push(dt)}
     var dark=e.lvl===2&&e.why.every(function(w){return /Dark/.test(w)});
-    rows[dt][hh]='<button type="button" class="cell '+(dark?"night":e.lvl===2?"stop":e.lvl===1?"caution":"")+(i===selCell?" sel":"")+'" data-i="'+i+'" aria-label="'+esc(relDay(i)+hr12(hh)+": "+(dark?"dark":e.lvl===2?"no-go":e.lvl===1?"marginal":"go"))+'"></button>';
+    var wd=dark?"Dark":e.lvl===2?"No-go":e.lvl===1?"Marginal":"Go",why1=e.why.slice(0,2).map(function(w){return w.replace(/^[✕~] /,"")}).join(" · ");
+    rows[dt][hh]='<button type="button" class="cell '+(dark?"night":e.lvl===2?"stop":e.lvl===1?"caution":"")+(i===selCell?" sel":"")+'" data-i="'+i+'" data-tip="'+esc(wd+"|"+(i===0?"Now":(relDay(i)||"Today ")+hr12(hh))+" · "+T(e.h.t)+", wind "+W(e.h.wind)+" "+wuL()+"|"+(why1||"All limits met"))+'" aria-label="'+esc(relDay(i)+hr12(hh)+": "+wd.toLowerCase()+(why1?". "+why1:""))+'"></button>';
   }
   grid+='<span></span><span class="ax">12a</span><span class="ax">6a</span><span class="ax">12p</span><span class="ax">6p</span>';
   var todayKey=DATA.current.time.slice(0,10);
@@ -1941,29 +1965,109 @@ function drawWork(){
 }
 
 function sum(name,a,b){var s=0,any=false;for(var k=a;k<b;k++){var v=g(name,k);if(v!=null){s+=v;any=true}}return any?s:null}
+/* ---------- charts (SUITE-STANDARDS §2): accent-family series, rounded bars, labelled gridlines and dashed limits,
+   and a label for every hour on hover, tap or the arrow keys (crosshair + dots on line charts, read bar highlighted). ---------- */
+var CH={},CHN=0,TIP=null,TIPON=null,TIPEL=null;
+function chReg(c){var id="ch"+(++CHN);CH[id]=c;   // forget old charts that are no longer on the page (never ones still being built)
+  if(CHN%40===0)Object.keys(CH).forEach(function(k){if(+k.slice(2)<CHN-30&&!document.querySelector('[data-ch="'+k+'"]'))delete CH[k]});return id}
+function tLab(t,now){if(now)return"Now";if(!t)return"";var d=new Date(t.slice(0,10)+"T12:00:00");return d.toLocaleDateString("en-US",{weekday:"short"})+" "+hr12(hourOf(t))}
+function barPath(x,y,w,h,r){r=Math.max(0,Math.min(r,w/2,h));var b=y+h;return 'M'+x.toFixed(1)+','+b.toFixed(1)+'V'+(y+r).toFixed(1)+'Q'+x.toFixed(1)+','+y.toFixed(1)+' '+(x+r).toFixed(1)+','+y.toFixed(1)+'H'+(x+w-r).toFixed(1)+'Q'+(x+w).toFixed(1)+','+y.toFixed(1)+' '+(x+w).toFixed(1)+','+(y+r).toFixed(1)+'V'+b.toFixed(1)+'Z'}
+function chBox(id,label,svg,cls){return '<div class="chbox'+(cls?" "+cls:"")+'" data-ch="'+id+'" tabindex="0" role="img" aria-label="'+esc(label+". Hover, tap or use the arrow keys to read each value.")+'">'+svg+'</div>'}
 function chartSvg(o){
   var N=o.N,W0=cw(),XS=cw()<520?12:6,Ht=o.h||200,L=36,R=12,T0=14,B=o.arrows?44:26,pw=W0-L-R,ph=Ht-T0-B,all=[];
   o.series.forEach(function(s){s.v.forEach(function(v){if(v!=null)all.push(v)})});
   if(!all.length)return'<div class="ok">No data for this model.</div>';
   var lo=Math.min.apply(null,all),hi=Math.max.apply(null,all);if(o.zero)lo=Math.min(lo,0);
-  var rg=Math.max(hi-lo,1),step=[1,2,5,10,20,50,100].filter(function(s){return rg/s<=5})[0]||100;
-  lo=Math.floor(lo/step)*step;hi=Math.ceil(hi/step)*step;if(hi===lo)hi=lo+step;
-  var X=function(i){return L+pw*i/(N-1)},Y=function(v){return T0+ph*(1-(v-lo)/(hi-lo))};
-  var grid="",bars="",xl="",lines="";
-  for(var gv=lo;gv<=hi+1e-9;gv+=step)grid+='<line x1="'+L+'" x2="'+(W0-R)+'" y1="'+Y(gv)+'" y2="'+Y(gv)+'" stroke="var(--line)"/><text x="'+(L-6)+'" y="'+(Y(gv)+4)+'" text-anchor="end">'+(o.yfmt?o.yfmt(gv):gv)+'</text>';
-  if(o.bars){var bm=Math.max.apply(null,o.bars.v.concat([o.bars.min||0.01]));o.bars.v.forEach(function(v,i){var bh=(v||0)/bm*ph*0.4;if(bh>0.6)bars+='<rect x="'+(X(i)-Math.min(2.5,pw/N/2-.4))+'" y="'+(T0+ph-bh)+'" width="'+Math.min(5,pw/N-.8)+'" height="'+bh+'" fill="var(--rain)" opacity=".5"/>'})}
-  for(var i=0;i<N;i++){var hh=hourOf((o.times||DATA.hourly.time.slice(I0))[i]);
-    if(hh%XS===0){xl+='<line x1="'+X(i)+'" x2="'+X(i)+'" y1="'+T0+'" y2="'+(T0+ph)+'" stroke="var(--line)" stroke-dasharray="2 4"/><text x="'+X(i)+'" y="'+(Ht-(o.arrows?30:8))+'" text-anchor="middle">'+(i===0?"Now":hh===0?new Date((o.times||DATA.hourly.time.slice(I0))[i].slice(0,10)+"T12:00:00").toLocaleDateString("en-US",{weekday:"short"}):hr12(hh).replace(" ",""))+'</text>'}}
-  o.series.forEach(function(s){
+  var rg=Math.max(hi-lo,o.minRange||1),step=[0.1,0.2,0.25,0.5,1,2,2.5,5,10,20,25,50,100,200,250,500].filter(function(s){return rg/s<=5})[0]||1000;
+  lo=Math.floor(lo/step+1e-9)*step;hi=Math.ceil(hi/step-1e-9)*step;if(hi<=lo)hi=lo+step;
+  var X=function(i){return L+pw*i/Math.max(1,N-1)},Y=function(v){return T0+ph*(1-(v-lo)/(hi-lo))};
+  var times=o.times||DATA.hourly.time.slice(I0),id="",grid="",bars="",xl="",lines="",defs="",tg="",dots="";
+  var dp=step<1?(step<0.25?1:2):0;
+  for(var gv=lo;gv<=hi+step/1000;gv+=step){var y=Y(gv).toFixed(1),zero=Math.abs(gv)<step/1000&&lo<0||Math.abs(gv)<step/1000&&o.zero;
+    grid+='<line x1="'+L+'" x2="'+(W0-R)+'" y1="'+y+'" y2="'+y+'" stroke="var('+(zero?'--border-strong':'--line')+')"/><text x="'+(L-6)+'" y="'+(+y+4)+'" text-anchor="end">'+(o.yfmt?o.yfmt(+gv.toFixed(2)):nf(gv,dp))+'</text>'}
+  (o.targets||[]).forEach(function(t){if(t.v<lo||t.v>hi)return;var y=Y(t.v).toFixed(1);
+    tg+='<line class="tline" x1="'+L+'" x2="'+(W0-R)+'" y1="'+y+'" y2="'+y+'" stroke="'+t.color+'" stroke-width="1.4" stroke-dasharray="6 4"/><text class="tlab" x="'+(W0-R-4)+'" y="'+(+y-5)+'" text-anchor="end" style="fill:'+t.color+'">'+esc(t.label)+'</text>'});
+  if(o.bars){var bm=Math.max.apply(null,o.bars.v.concat([o.bars.min||0.01])),bw=Math.max(2,Math.min(8,pw/N-1.2));
+    o.bars.v.forEach(function(v,i){var bh=(v||0)/bm*ph*0.4;if(bh>0.6)bars+='<path class="bar" data-i="'+i+'" d="'+barPath(X(i)-bw/2,T0+ph-bh,bw,bh,4)+'" fill="'+(o.bars.color||"var(--s3)")+'"/>'})}
+  for(var i=0;i<N;i++){var hh=hourOf(times[i]);
+    if(hh%XS===0){xl+='<line x1="'+X(i)+'" x2="'+X(i)+'" y1="'+T0+'" y2="'+(T0+ph)+'" stroke="var(--line)" stroke-dasharray="2 4"/><text x="'+X(i)+'" y="'+(Ht-(o.arrows?30:8))+'" text-anchor="middle">'+(i===0?"Now":hh===0?new Date(times[i].slice(0,10)+"T12:00:00").toLocaleDateString("en-US",{weekday:"short"}):hr12(hh).replace(" ",""))+'</text>'}}
+  var key="g"+(CHN+1);
+  o.series.forEach(function(s,k){
     var pts=[];s.v.forEach(function(v,i){if(v!=null)pts.push(X(i).toFixed(1)+","+Y(v).toFixed(1))});
     if(pts.length<2)return;
-    if(s.fill)lines+='<path d="M'+pts[0].split(",")[0]+","+(T0+ph)+" L"+pts.join(" L")+" L"+pts[pts.length-1].split(",")[0]+","+(T0+ph)+'Z" fill="'+s.color+'" opacity=".12"/>';
-    lines+='<polyline points="'+pts.join(" ")+'" fill="none" stroke="'+s.color+'" stroke-width="'+(s.w||2.2)+'" stroke-linejoin="round" stroke-linecap="round"'+(s.dash?' stroke-dasharray="'+s.dash+'"':'')+'/>';
+    if(s.fill){defs+='<linearGradient id="'+key+k+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:'+s.color+';stop-opacity:.24"/><stop offset="1" style="stop-color:'+s.color+';stop-opacity:0"/></linearGradient>';
+      lines+='<path d="M'+pts[0].split(",")[0]+","+(T0+ph)+" L"+pts.join(" L")+" L"+pts[pts.length-1].split(",")[0]+","+(T0+ph)+'Z" fill="url(#'+key+k+')"/>'}
+    lines+='<polyline points="'+pts.join(" ")+'" fill="none" stroke="'+s.color+'" stroke-width="'+(s.w||2.5)+'" stroke-linejoin="round" stroke-linecap="round"'+(s.dash?' stroke-dasharray="'+s.dash+'"':'')+'/>';
+    dots+='<circle r="4.2" fill="'+s.color+'" stroke="var(--surface)" stroke-width="2"/>';
   });
   var arr="";
   if(o.arrows)for(i=0;i<N;i+=3){var d=o.arrows[i];if(d==null)continue;arr+='<g transform="translate('+X(i)+' '+(Ht-12)+') rotate('+(d+180)+')"><path d="M0,-7 L4.5,6 L0,3 L-4.5,6Z" fill="var(--muted)"/></g>'}
-  return '<svg class="chart" viewBox="0 0 '+W0+' '+Ht+'" role="img" aria-label="'+esc(o.label)+'">'+grid+xl+bars+lines+arr+'</svg>';
+  var xs=[],ser=o.series.filter(function(s){return s.v.filter(function(v){return v!=null}).length>=2});
+  for(i=0;i<N;i++)xs.push(X(i));
+  id=chReg({kind:"line",n:N,w:W0,h:Ht,xs:xs,dots:ser.map(function(s){return s.v.map(function(v){return v==null?null:Y(v)})}),
+    tip:o.tip||function(i){
+      var m=o.series[o.main||0],t=tLab(times[i],i===0&&!o.times);
+      var ctx=o.series.filter(function(s){return s!==m&&s.name&&s.v[i]!=null&&!(s.pro&&prefs.mode!=="pro")}).map(function(s){return s.name+" "+s.fmt(s.v[i])});
+      if(o.bars&&o.bars.name&&o.bars.v[i]!=null)ctx.push(o.bars.name+" "+o.bars.fmt(o.bars.v[i],i));
+      if(o.ctx){var c=o.ctx(i);if(c)ctx.push(c)}
+      return [m.v[i]==null?"–":m.fmt(m.v[i]),(m.name?m.name+" · ":"")+t,ctx.join(" · ")];
+    }});
+  var svg='<svg class="chart" viewBox="0 0 '+W0+' '+Ht+'" aria-hidden="true" focusable="false"><defs>'+defs+'</defs>'+grid+xl+tg+bars+lines+arr+
+    '<g class="xh" display="none"><line x1="0" x2="0" y1="'+T0+'" y2="'+(T0+ph)+'" stroke="var(--ink-2)" stroke-width="1" stroke-dasharray="3 3"/>'+dots+'</g></svg>';
+  return chBox(id,o.label,svg);
 }
+/* reading a chart: pointer, finger or arrow keys. One label element for the whole page. */
+function tipEl(){if(!TIP){TIP=document.createElement("div");TIP.className="ctip num";TIP.setAttribute("role","status");TIP.setAttribute("aria-live","polite");TIP.hidden=true;document.body.appendChild(TIP)}return TIP}
+function tipShow(lines,r){
+  var t=tipEl();t.textContent="";var b=document.createElement("b");b.textContent=lines[0];t.appendChild(b);
+  lines.slice(1).filter(Boolean).forEach(function(x){var sp=document.createElement("span");sp.textContent=x;t.appendChild(sp)});
+  t.hidden=false;var tw=t.offsetWidth,th=t.offsetHeight,cx=r.left+r.width/2;
+  var left=Math.max(8,Math.min(innerWidth-tw-8,cx-tw/2)),top=r.top-th-10;if(top<8)top=r.bottom+10;
+  t.style.left=left+"px";t.style.top=top+"px";
+}
+function chClear(box){var svg=box.querySelector("svg");if(!svg)return;svg.classList.remove("reading");var g=svg.querySelector(".xh");if(g)g.setAttribute("display","none");svg.querySelectorAll(".bar.on").forEach(function(b){b.classList.remove("on")})}
+function tipHide(){if(TIP)TIP.hidden=true;if(TIPON){chClear(TIPON);TIPON=null}if(TIPEL){TIPEL.classList.remove("tipon");TIPEL=null}}
+function chRead(box,i){
+  var c=CH[box.dataset.ch];if(!c)return;i=Math.max(0,Math.min(c.n-1,i));c.cur=i;
+  var svg=box.querySelector("svg"),r=svg.getBoundingClientRect(),sx=r.width/c.w,sy=r.height/c.h,x=c.xs[i],top=null;
+  if(TIPEL){TIPEL.classList.remove("tipon");TIPEL=null}
+  if(TIPON&&TIPON!==box)chClear(TIPON);TIPON=box;svg.classList.add("reading");
+  svg.querySelectorAll(".bar").forEach(function(b){b.classList.toggle("on",+b.dataset.i===i)});
+  if(c.kind==="line"){
+    var g=svg.querySelector(".xh");g.removeAttribute("display");var ln=g.querySelector("line");ln.setAttribute("x1",x);ln.setAttribute("x2",x);
+    var ds=g.querySelectorAll("circle");c.dots.forEach(function(ys,k){var y=ys[i],d=ds[k];if(!d)return;if(y==null){d.setAttribute("display","none");return}d.removeAttribute("display");d.setAttribute("cx",x);d.setAttribute("cy",y);top=top==null?y:Math.min(top,y)});
+  }else top=c.tops[i];
+  if(top==null)top=c.h/2;
+  var px=r.left+x*sx,py=r.top+top*sy;
+  tipShow(c.tip(i),{left:px-8,width:16,top:py-8,bottom:py+8});
+}
+function chIndex(box,clientX){var c=CH[box.dataset.ch],r=box.querySelector("svg").getBoundingClientRect(),vx=(clientX-r.left)/r.width*c.w,bi=0,bd=1e9;c.xs.forEach(function(x,i){var d=Math.abs(x-vx);if(d<bd){bd=d;bi=i}});return bi}
+function tipFor(el){if(TIPON){chClear(TIPON);TIPON=null}if(TIPEL&&TIPEL!==el)TIPEL.classList.remove("tipon");TIPEL=el;el.classList.add("tipon");tipShow(el.getAttribute("data-tip").split("|"),el.getBoundingClientRect())}
+function chAt(e){var t=e.target;return t&&t.closest?t.closest(".chbox"):null}
+document.addEventListener("pointermove",function(e){
+  var box=chAt(e);if(box&&CH[box.dataset.ch]){if(e.pointerType==="mouse"||e.buttons)chRead(box,chIndex(box,e.clientX));return}
+  var el=e.target&&e.target.closest&&e.target.closest("[data-tip]");
+  if(el&&e.pointerType==="mouse"){if(el!==TIPEL)tipFor(el);return}
+  if(e.pointerType==="mouse"&&(TIPON||TIPEL)&&!((TIPON||TIPEL).contains(document.activeElement)))tipHide();
+},{passive:true});
+document.addEventListener("pointerdown",function(e){
+  var box=chAt(e);if(box&&CH[box.dataset.ch]){chRead(box,chIndex(box,e.clientX));return}
+  var el=e.target&&e.target.closest&&e.target.closest("[data-tip]");if(el){tipFor(el);return}
+  if(TIPON||TIPEL)tipHide();
+});
+document.addEventListener("focusin",function(e){
+  var t=e.target;if(t&&t.classList&&t.classList.contains("chbox")&&CH[t.dataset.ch]){chRead(t,CH[t.dataset.ch].cur||0);return}
+  if(t&&t.hasAttribute&&t.hasAttribute("data-tip")){tipFor(t);return}
+  if(TIPON||TIPEL)tipHide();
+});
+document.addEventListener("keydown",function(e){
+  if(e.key==="Escape"&&(TIPON||TIPEL)&&TIP&&!TIP.hidden){tipHide();return}
+  var t=e.target;if(!t||!t.classList||!t.classList.contains("chbox"))return;var c=CH[t.dataset.ch];if(!c)return;
+  var i=c.cur||0,st=e.shiftKey?6:1,k={ArrowLeft:i-st,ArrowRight:i+st,Home:0,End:c.n-1}[e.key];if(k==null)return;e.preventDefault();chRead(t,k);
+});
+window.addEventListener("scroll",function(){if(TIP&&!TIP.hidden)tipHide()},{passive:true,capture:true});
+window.addEventListener("resize",function(){if(TIP&&!TIP.hidden)tipHide()});
+function hint(t,touch){return '<span class="charthint" data-touch="'+(touch||"Tap the chart")+'">'+(t||"Hover or tap the chart")+'</span>'}
 
 function moonInfo(dateStr){
   var jd=new Date(dateStr+"T12:00:00Z")/86400000+2440587.5,S=29.530588853,age=(((jd-2451550.1)%S)+S)%S,ill=(1-Math.cos(2*Math.PI*age/S))/2;
@@ -2031,10 +2135,13 @@ function render(){
     var M=d.minutely_15,s=M.time.findIndex(function(t){return t>=c.time}),bars="",tot=0;if(s<0)s=0;
     var vals=M.precipitation.slice(s,s+8);
     if(vals.length>=4){
-      var mx=Math.max.apply(null,vals.concat([0.02]));
-      vals.forEach(function(v,i){tot+=v||0;var bh=(v||0)/mx*30;bars+='<rect x="'+(i*15+1)+'" y="'+(34-Math.max(bh,v>0?2:1))+'" width="13" height="'+Math.max(bh,v>0?2:1)+'" fill="#fff" opacity="'+(v>0?.95:.35)+'"/>'});
+      var mx=Math.max.apply(null,vals.concat([0.02])),ntops=[],nxs=[],ntimes=M.time.slice(s,s+vals.length);
+      vals.forEach(function(v,i){tot+=v||0;var bh=Math.max((v||0)/mx*30,v>0?2:1.5);ntops.push(34-bh);nxs.push(i*15+7.5);bars+='<path class="bar'+(v>0?' wet':'')+'" data-i="'+i+'" d="'+barPath(i*15+1,34-bh,13,bh,4)+'"/>'});
       var firstWet=vals.findIndex(function(v){return v>=0.002});
-      now='<div class="now"><svg viewBox="0 0 120 34" aria-hidden="true">'+bars+'</svg><span class="num">Next 2 h: '+(tot<0.005?"dry":PR(tot)+" "+prU()+" expected"+(firstWet>=0?", starting in ~"+(firstWet*15)+" min":""))+'</span></div>';
+      var nowTxt="Next 2 h: "+(tot<0.005?"dry":PR(tot)+" "+prU()+" expected"+(firstWet>=0?", starting in ~"+(firstWet*15)+" min":""));
+      var nid=chReg({kind:"bar",n:vals.length,w:120,h:34,xs:nxs,tops:ntops,tip:function(i){var a=ntimes[i],v=vals[i]||0;
+        return [v<0.002?"Dry":PR(v,C()?1:2)+" "+prU(),clock(a)+" – "+clockM(minsOf(a)+15),nowTxt]}});
+      now='<div class="now">'+chBox(nid,"Rain in 15-minute steps, next 2 hours. "+nowTxt,'<svg class="nowc" viewBox="0 0 120 34" aria-hidden="true" focusable="false">'+bars+'</svg>',"nowbox")+'<span class="num">'+nowTxt+'</span></div>';
     }
   }
   var hero='<section class="hero" data-sky="'+skyOf(c.weather_code,c.is_day)+'" data-tod="'+(c.is_day?"day":"night")+'"><div><div class="where"><strong>'+esc(loc.name)+'</strong>'+(isHome()?'<span class="tag">Home</span>':'')+(isDemo()?'<span class="tag tag-demo">Sample location</span>':'')+'</div>'+
@@ -2062,7 +2169,7 @@ function render(){
   for(i=0;i<10&&d0+i<D.time.length;i++){var j=d0+i,lo2=D.temperature_2m_min[j],hi3=D.temperature_2m_max[j];if(lo2==null||hi3==null)continue;
     var di=wmo(D.weather_code[j]),pp=D.precipitation_probability_max&&D.precipitation_probability_max[j],sn=D.snowfall_sum&&D.snowfall_sum[j];
     days+='<div class="day num"><span class="d">'+dayName(D.time[j],i)+'</span>'+icon(di[1],false)+'<span class="lo">'+T(lo2)+'</span>'+
-      '<div class="range"><i style="left:'+((lo2-mn)/span*100).toFixed(1)+'%;right:'+(100-(hi3-mn)/span*100).toFixed(1)+'%"></i></div><span class="hi">'+T(hi3)+'</span>'+
+      '<div class="range" tabindex="0" data-tip="'+esc(T(hi3)+" / "+T(lo2)+"|"+(i===0?"Today, ":"")+new Date(D.time[j]+"T12:00:00").toLocaleDateString("en-US",{weekday:"short",month:"short",day:"numeric"})+" · "+di[0]+"|"+(D.precipitation_sum[j]>=0.01?PR(D.precipitation_sum[j])+" "+prU()+" rain":"Dry")+(pp!=null?" · "+pp+"% chance":"")+" · gusts "+W(D.wind_gusts_10m_max[j])+" "+wuL())+'" aria-label="'+esc(dayName(D.time[j],i)+": high "+T(hi3)+", low "+T(lo2)+", "+di[0])+'"><i style="left:'+((lo2-mn)/span*100).toFixed(1)+'%;right:'+(100-(hi3-mn)/span*100).toFixed(1)+'%"></i></div><span class="hi">'+T(hi3)+'</span>'+
       '<span class="pr">'+(D.precipitation_sum[j]>=0.01?PR(D.precipitation_sum[j])+" "+prU():"dry")+(pp!=null&&pp>=10?" · "+pp+"%":"")+(sn>0.05?" · snow":"")+'</span>'+
       '<span class="wd pro">'+cardinal(D.wind_direction_10m_dominant&&D.wind_direction_10m_dominant[j])+' '+W(D.wind_speed_10m_max[j])+' G'+W(D.wind_gusts_10m_max[j])+'</span></div>';
   }
@@ -2098,8 +2205,14 @@ function render(){
   /* charts, 72 h */
   var CN=Math.min(72,len-i0),tS=[],dS=[],aS=[],pr=[],wS=[],gS=[],w80=[],dirs=[];
   for(i=0;i<CN;i++){var q2=hour(i0+i);tS.push(q2.t==null?null:cvT(q2.t));dS.push(q2.dew==null?null:cvT(q2.dew));aS.push(q2.ap==null?null:cvT(q2.ap));pr.push(C()?q2.pr*25.4:q2.pr);wS.push(q2.wind==null?null:cvW(q2.wind));gS.push(q2.gust==null?null:cvW(q2.gust));w80.push(q2.w80==null?null:cvW(q2.w80));dirs.push(q2.dir)}
-  var ch1=chartSvg({N:CN,series:[{v:tS,color:"var(--accent)",fill:1},{v:dS,color:"var(--cool)",dash:"5 4",w:1.8},{v:aS,color:"var(--warm)",w:1.5,dash:"2 3"}],bars:{v:pr,min:C()?1:0.05},yfmt:function(v){return v+"°"},label:"Temperature, dew point, feels-like and precipitation, next 72 hours"});
-  var ch2=chartSvg({N:CN,series:[{v:gS,color:"var(--crit)",w:1.8},{v:w80,color:"var(--muted)",dash:"5 4",w:1.6},{v:wS,color:"var(--accent)",w:2.4,fill:1}],zero:true,arrows:dirs,h:230,yfmt:function(v){return v},label:"Sustained wind, gusts and 80 m wind, next 72 hours"});
+  var dg=function(v){return nf(v,0)+"°"},ws=function(v){return nf(v,0)+" "+tu},frz=C()?0:32,pops=[];
+  for(i=0;i<CN;i++)pops.push(hour(i0+i).pop);
+  var ch1=chartSvg({N:CN,series:[{v:tS,color:"var(--s1)",fill:1,w:2.6,name:"Temp",fmt:dg},{v:dS,color:"var(--s4)",dash:"5 4",w:1.8,name:"Dew point",fmt:dg,pro:1},{v:aS,color:"var(--s2)",w:1.8,dash:"2 3",name:"Feels",fmt:dg}],
+    bars:{v:pr,min:C()?1:0.05,name:"Precip",fmt:function(v,i){return (v>0?PR(C()?v/25.4:v,C()?1:2)+" "+prU():"none")+(pops[i]!=null?" ("+pops[i]+"%)":"")}},
+    targets:[{v:frz,label:"Freezing "+frz+"°",color:"var(--s4)"}],yfmt:function(v){return v+"°"},label:"Temperature, feels-like, dew point and precipitation, next 72 hours"});
+  var ch2=chartSvg({N:CN,series:[{v:gS,color:"var(--s2)",w:2,name:"Gusts",fmt:ws},{v:w80,color:"var(--s4)",dash:"5 4",w:1.6,name:"80 m",fmt:ws,pro:1},{v:wS,color:"var(--s1)",w:2.6,fill:1,name:"Wind",fmt:ws}],main:2,zero:true,arrows:dirs,h:230,
+    targets:[{v:cvW(25),label:"Gusts "+nf(cvW(25))+" "+tu,color:"var(--warn)"},{v:cvW(40),label:"Gusts "+nf(cvW(40))+" "+tu,color:"var(--crit)"}],
+    ctx:function(i){return "from "+cardinal(dirs[i])},yfmt:function(v){return v},label:"Sustained wind, gusts and 80 m wind, next 72 hours"});
 
   /* atmosphere */
   var cape12=0;for(i=0;i<12&&hAt(i0+i);i++)cape12=Math.max(cape12,hour(i0+i).cape||0);
@@ -2141,7 +2254,8 @@ function render(){
     '<div class="tile"><div class="k">Growing degree days (50/86 °F)</div><div class="v num">'+nf(gdd7p,0)+" / "+nf(gdd7f,0)+'<small>GDD</small></div><div class="n num">Past 7 d / next 7 d · <span id="gddSeason">season total loading…</span></div></div>'
   ].join("");
 
-  $("#hero").innerHTML=hero;
+  heroHtml(hero);
+  if(GREET){var hd=$("#hero .hero>div");if(hd)hd.insertBefore(GREET,hd.firstChild)}
   $("#panels").innerHTML=
    '<div class="panel" id="panel-overview">'+
      '<section class="card"><div class="hd"><h2>Alerts</h2></div><div id="alertsBody"></div></section>'+
@@ -2151,10 +2265,10 @@ function render(){
      '<section class="card"><h2>Details</h2><div class="tiles">'+basic+'</div></section>'+
      '<section class="card"><div class="hd"><h2>10-day forecast</h2><button class="btn mb-share-btn" id="share10" type="button" aria-label="Share the 10-day outlook as an image"><svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 15V3.5M8 7.5l4-4 4 4"/><path d="M5 12.5v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg>Share</button></div><div>'+days+'</div></section></div>'+
    '<div class="panel" id="panel-hourly" hidden>'+
-     '<section class="card"><div class="hd"><h2>Hourly · next 36 h</h2><span class="sm">Amber gust ≥ 25 mph · red ≥ 40 mph · blue = precipitation</span></div>'+table+'</section>'+
-     '<section class="card"><div class="hd"><h2>Next 72 hours</h2></div>'+
-       '<div class="legend"><span><i style="background:var(--accent)"></i>Temp</span><span class="pro"><i style="background:var(--cool)"></i>Dew point</span><span><i style="background:var(--warm)"></i>Feels like</span><span><i style="background:var(--rain);opacity:.5;height:8px"></i>Precip</span></div><div class="scroll">'+ch1+'</div>'+
-       '<h3>Wind ('+tu+'), direction every 3 h</h3><div class="legend"><span><i style="background:var(--accent)"></i>Sustained</span><span><i style="background:var(--crit)"></i>Gusts</span><span class="pro"><i style="background:var(--muted)"></i>80 m</span></div><div class="scroll">'+ch2+'</div></section></div>'+
+     '<section class="card"><div class="hd"><h2>Hourly · next 36 h</h2><span class="sm">Amber gust ≥ '+nf(cvW(25))+' '+tu+' · red ≥ '+nf(cvW(40))+' '+tu+' · blue = precipitation</span></div>'+table+'</section>'+
+     '<section class="card"><div class="hd"><h2>Next 72 hours</h2>'+hint()+'</div>'+
+       '<div class="legend"><span><i style="background:var(--s1)"></i>Temp</span><span><i class="dash" style="color:var(--s2)"></i>Feels like</span><span class="pro"><i class="dash" style="color:var(--s4)"></i>Dew point</span><span><i style="background:var(--s3);height:8px"></i>Precip</span></div><div class="scroll">'+ch1+'</div>'+
+       '<h3>Wind ('+tu+'), direction every 3 h</h3><div class="legend"><span><i style="background:var(--s1)"></i>Sustained</span><span><i style="background:var(--s2)"></i>Gusts</span><span class="pro"><i class="dash" style="color:var(--s4)"></i>80 m</span><span><i class="dash" style="color:var(--warn)"></i>Gust limits</span></div><div class="scroll">'+ch2+'</div></section></div>'+
    '<div class="panel" id="panel-life" hidden>'+
      '<section class="card"><h2>What to wear and bring</h2>'+gearHtml()+'</section>'+
      '<section class="card"><div class="hd"><h2>Activity forecast · next 72 h</h2><span class="sm">Green = every limit met · amber = marginal · red = no-go · grey = dark</span></div><div id="workBody"></div><div class="note">Planning aid only. You set the limits, and they are not safety or regulatory advice. Check conditions yourself and follow local rules.</div></section>'+
@@ -2181,29 +2295,37 @@ function hFade(){var h=document.querySelector(".hscroll");if(!h)return;
   var u=function(){h.classList.toggle("can-l",h.scrollLeft>4);h.classList.toggle("can-r",h.scrollLeft+h.clientWidth<h.scrollWidth-4)};
   h.addEventListener("scroll",u,{passive:true});u();
   if(window.ResizeObserver){try{new ResizeObserver(u).observe(h)}catch(e){}}else window.addEventListener("resize",u)}
-var TAB_NAMES={overview:"Overview",hourly:"Hourly",map:"Map",life:"Plan",compare:"Compare",field:"Field & air"};
+/* Views. The start view's key stays "overview" (saved in prefs.tab and old backups); its name is Home. Settings is a view too,
+   but it is never saved as the last tab, so a reload opens the last forecast view. */
+var TAB_NAMES={overview:"Home",hourly:"Hourly",map:"Map",life:"Plan",compare:"Compare",field:"Field & air",settings:"Settings"};
+var VIEW=null;
 function setTitle(){
   var a=document.getElementById("about"),o=document.getElementById("ob"),n;
-  if(a&&a.open)n="About";else if(o&&!o.hidden)n="Setup";else n=TAB_NAMES[prefs.tab]||"Overview";
+  if(a&&a.open)n="Help";else if(o&&!o.hidden)n="Welcome";else n=TAB_NAMES[VIEW||prefs.tab]||"Home";
   if(window.MBTitle)MBTitle.set(n);else document.title="Weather | "+n;
 }
 function showTab(t){
-  if(t==="work")t="life";var ok=["overview","hourly","map","life","compare","field"];if(ok.indexOf(t)<0)t="overview";
+  if(t==="work")t="life";if(t==="home")t="overview";
+  var ok=["overview","hourly","map","life","compare","field","settings"];if(ok.indexOf(t)<0)t="overview";
   if(prefs.mode==="everyday"&&(t==="field"||t==="compare"))t="overview";
-  prefs.tab=t;setTitle();
-  var pt=$("#pageTitle");if(pt)pt.textContent=TAB_NAMES[t]||"Overview";
+  VIEW=t;if(t!=="settings")prefs.tab=t;
+  document.body.dataset.view=t;setTitle();
+  var pt=$("#pageTitle");if(pt)pt.textContent=TAB_NAMES[t]||"Home";
   document.querySelectorAll("[data-tab]").forEach(function(b){if(b.dataset.tab===t)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
-  var mr=$("#bnMore");if(mr){if(t==="compare"||t==="field")mr.setAttribute("aria-current","page");else mr.removeAttribute("aria-current")}
+  var mr=$("#bnMore");if(mr){if(t==="compare"||t==="field"||(t==="settings"&&prefs.mode==="pro"))mr.setAttribute("aria-current","page");else mr.removeAttribute("aria-current")}
   document.querySelectorAll(".panel").forEach(function(p){p.hidden=p.id!=="panel-"+t});
   if(t!=="map"&&MAP.playing)stopPlay();
+  if(t==="settings"){if(window.MBInstall)MBInstall.render();notifyLabel();dmRefresh()}
   if(DATA){if(t==="map")initMapTab();else if(t==="life")loadLife();else if(t==="compare")loadCompare()}
 }
 function applyMode(){
   document.body.dataset.mode=prefs.mode;
-  document.querySelectorAll("#settings .seg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.mode===prefs.mode?"true":"false")});
-  showTab(prefs.tab);
+  document.querySelectorAll("#modeSeg button").forEach(function(b){b.setAttribute("aria-pressed",b.dataset.mode===prefs.mode?"true":"false")});
+  showTab(VIEW||prefs.tab);
 }
-function applyTheme(){var d=prefs.theme==="dark";document.documentElement.setAttribute("data-theme",d?"dark":"light");var sw=$("#themeSw");if(sw)sw.setAttribute("aria-checked",d?"true":"false")}
+/* one theme for the bar switch, the Settings Light | Dark control and the welcome's Pick a look */
+function applyTheme(){var d=prefs.theme==="dark",t=d?"dark":"light";document.documentElement.setAttribute("data-theme",t);var sw=$("#themeSw");if(sw)sw.setAttribute("aria-checked",d?"true":"false");
+  document.querySelectorAll("[data-theme-set]").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.themeSet===t))})}
 function cvT0(h){ // wet bulb in °F from Delta T
   return h.t-(h.dT*9/5);
 }
@@ -2301,7 +2423,7 @@ $("#q").addEventListener("keydown",function(e){if(e.key==="Enter"){var f=$("#res
 document.addEventListener("click",function(e){if(!e.target.closest(".search"))hideResults()});
 document.addEventListener("keydown",function(e){if(e.key==="Escape")hideResults()});
 /* bar Search and the "/" key jump to the place field at the top of the page */
-function findPlace(){var q=$("#q");if(!q)return;closeMenus();window.scrollTo({top:0,behavior:"auto"});q.focus();q.select()}
+function findPlace(){var q=$("#q");if(!q)return;closeMenus();if(VIEW==="settings")showTab(prefs.tab);window.scrollTo({top:0,behavior:"auto"});q.focus();q.select()}
 $("#findBtn").addEventListener("click",function(e){e.stopPropagation();findPlace()});
 document.addEventListener("keydown",function(e){
   if(e.key!=="/"||e.ctrlKey||e.metaKey||e.altKey)return;
@@ -2659,13 +2781,18 @@ function drawAQ(){
   var el=$("#aqBody");if(!el)return;var a=EX.aq;
   if(!a||a.loading){el.innerHTML='<div class="ok">Loading air quality…</div>';return}
   if(a.err||!a.d.current){el.innerHTML='<div class="ok">Air quality data is not available for this location.</div>';return}
-  var c=a.d.current,cat=aqCat(c.us_aqi),H=a.d.hourly,i0=Math.max(0,H.time.indexOf(c.time.slice(0,13)+":00")),N=Math.min(48,H.time.length-i0),bars="",W0=cw(),Ht=90;
-  for(var i=0;i<N;i++){var v=H.us_aqi[i0+i];if(v==null)continue;var bh=Math.min(v,200)/200*60,cc=aqCat(v)[1];bars+='<rect x="'+(i*(W0/N)+1)+'" y="'+(70-bh)+'" width="'+(W0/N-2)+'" height="'+Math.max(bh,2)+'" fill="'+cc+'" rx="2"><title>'+hr12(hourOf(H.time[i0+i]))+': AQI '+v+'</title></rect>';if(i%(W0<520?12:6)===0)bars+='<text x="'+(i*(W0/N))+'" y="86">'+(i===0?"Now":hr12(hourOf(H.time[i0+i])).replace(" ",""))+'</text>'}
+  var c=a.d.current,cat=aqCat(c.us_aqi),H=a.d.hourly,i0=Math.max(0,H.time.indexOf(c.time.slice(0,13)+":00")),N=Math.min(48,H.time.length-i0),bars="",W0=cw(),Ht=110,L=30,T0=8,PH=74,bw=(W0-L)/N,xs=[],tops=[],gl="";
+  var aY=function(v){return T0+PH*(1-Math.min(v,200)/200)};
+  [0,50,150,200].forEach(function(g){gl+='<line x1="'+L+'" x2="'+W0+'" y1="'+aY(g)+'" y2="'+aY(g)+'" stroke="var('+(g?'--line':'--border-strong')+')"/><text x="'+(L-5)+'" y="'+(aY(g)+4)+'" text-anchor="end">'+g+'</text>'});
+  gl+='<line x1="'+L+'" x2="'+W0+'" y1="'+aY(100)+'" y2="'+aY(100)+'" stroke="var(--warn)" stroke-width="1.4" stroke-dasharray="6 4"/><text x="'+(L-5)+'" y="'+(aY(100)+4)+'" text-anchor="end">100</text><text class="tlab" x="'+(W0-4)+'" y="'+(aY(100)-5)+'" text-anchor="end" style="fill:var(--warn-ink,var(--warn))">100 · unhealthy for sensitive groups</text>';
+  for(var i=0;i<N;i++){var v=H.us_aqi[i0+i],x=L+i*bw;xs.push(x+bw/2);if(v==null){tops.push(null);continue}var bh=Math.max(Math.min(v,200)/200*PH,2),cc=aqCat(v)[1];tops.push(T0+PH-bh);
+    bars+='<path class="bar" data-i="'+i+'" d="'+barPath(x+1,T0+PH-bh,Math.max(1,bw-2),bh,4)+'" fill="'+cc+'"/>';if(i%(W0<520?12:6)===0)bars+='<text x="'+(x+bw/2)+'" y="'+(Ht-6)+'" text-anchor="middle">'+(i===0?"Now":hr12(hourOf(H.time[i0+i])).replace(" ",""))+'</text>'}
+  var aid=chReg({kind:"bar",n:N,w:W0,h:Ht,xs:xs,tops:tops,tip:function(i){var v=H.us_aqi[i0+i];return [v==null?"No data":"AQI "+v,tLab(H.time[i0+i],i===0),v==null?"":aqCat(v)[0]]}});
   var pol=["alder","birch","grass","ragweed","olive","mugwort"].map(function(p){var v=H[p+"_pollen"]&&H[p+"_pollen"][i0];return v==null?null:[p,v]}).filter(Boolean);
   var polTxt=pol.length?'<h3>Pollen (grains/m³)</h3><div class="best">'+pol.map(function(p){return '<span class="chip">'+p[0][0].toUpperCase()+p[0].slice(1)+' '+nf(p[1],0)+'</span>'}).join("")+'</div>':'<div class="note">Pollen counts are only published for Europe.</div>';
   el.innerHTML='<div class="tiles">'+tileH("US AQI",nf(c.us_aqi)+"<small>"+cat[0]+"</small>","Next 48 h peak "+nf(Math.max.apply(null,H.us_aqi.slice(i0,i0+N).filter(function(v){return v!=null}).concat([0]))),"")+
     tileH("PM2.5",nf(c.pm2_5,1)+"<small>µg/m³</small>","Fine particles, smoke")+tileH("Ozone",nf(c.ozone,0)+"<small>µg/m³</small>","")+tileH("NO₂",nf(c.nitrogen_dioxide,0)+"<small>µg/m³</small>","")+'</div>'+
-    '<h3>AQI, next 48 hours</h3><div class="scroll"><svg viewBox="0 0 '+W0+' '+Ht+'" class="chart" style="min-width:560px" role="img" aria-label="Air quality index forecast">'+bars+'</svg></div>'+polTxt;
+    '<div class="hd" style="margin:14px 0 6px"><h3 style="margin:0">AQI, next 48 hours</h3>'+hint("Hover or tap a bar","Tap a bar")+'</div><div class="scroll">'+chBox(aid,"Air quality index forecast, next 48 hours",'<svg viewBox="0 0 '+W0+' '+Ht+'" class="chart" aria-hidden="true" focusable="false">'+gl+bars+'</svg>')+'</div><div class="note">Bar colors follow the US AQI scale: green good, yellow moderate, orange unhealthy for sensitive groups, red unhealthy.</div>'+polTxt;
   var t=el.querySelector(".tile .v small");if(t)t.style.color=cat[1];
 }
 
@@ -2685,13 +2812,13 @@ function loadCoast(){
 function tideSvg(t){
   var pts=t.hourly.map(function(p){return {t:p.t,v:+p.v}}),nowKey=DATA.current.time.slice(0,10)+" "+DATA.current.time.slice(11,16);
   var s=pts.findIndex(function(p){return p.t>=nowKey.slice(0,13)+":00"});if(s<0)s=0;pts=pts.slice(s,s+49);if(pts.length<4)return"";
-  var W0=cw(),Ht=190,L=36,R=12,T0=14,B=26,pw=W0-L-R,ph=Ht-T0-B,lo=Math.min.apply(null,pts.map(function(p){return p.v})),hi=Math.max.apply(null,pts.map(function(p){return p.v}));
-  lo=Math.floor(lo-0.5);hi=Math.ceil(hi+0.5);var X=function(i){return L+pw*i/(pts.length-1)},Y=function(v){return T0+ph*(1-(v-lo)/(hi-lo))};
-  var cv=function(v){return C()?v/3.28084:v},grid="",xl="";
-  for(var gv=lo;gv<=hi;gv+=Math.max(1,Math.round((hi-lo)/4)))grid+='<line x1="'+L+'" x2="'+(W0-R)+'" y1="'+Y(gv)+'" y2="'+Y(gv)+'" stroke="var(--line)"/><text x="'+(L-6)+'" y="'+(Y(gv)+4)+'" text-anchor="end">'+nf(cv(gv),C()?1:0)+'</text>';
-  pts.forEach(function(p,i){var h=+p.t.slice(11,13);if(h%(W0<520?12:6)===0)xl+='<line x1="'+X(i)+'" x2="'+X(i)+'" y1="'+T0+'" y2="'+(T0+ph)+'" stroke="var(--line)" stroke-dasharray="2 4"/><text x="'+X(i)+'" y="'+(Ht-8)+'" text-anchor="middle">'+(i===0?"Now":hr12(h).replace(" ",""))+'</text>'});
-  var line=pts.map(function(p,i){return X(i).toFixed(1)+","+Y(p.v).toFixed(1)}).join(" ");
-  return '<svg class="chart" viewBox="0 0 '+W0+' '+Ht+'" role="img" aria-label="Predicted tide height, next 48 hours">'+grid+xl+'<path d="M'+X(0)+","+(T0+ph)+" L"+line.split(" ").join(" L")+" L"+X(pts.length-1)+","+(T0+ph)+'Z" fill="var(--rain)" opacity=".15"/><polyline points="'+line+'" fill="none" stroke="var(--rain)" stroke-width="2.4" stroke-linejoin="round"/><circle cx="'+X(0)+'" cy="'+Y(pts[0].v)+'" r="4.5" fill="var(--rain)"/></svg>';
+  var cv=function(v){return C()?v/3.28084:v},u=C()?"m":"ft";
+  var times=pts.map(function(p){return p.t.replace(" ","T")}),nowT=DATA.current.time.slice(0,13)+":00";
+  var ch=chartSvg({N:pts.length,times:times,series:[{v:pts.map(function(p){return cv(p.v)}),color:"var(--s1)",fill:1,w:2.6,name:"Tide",fmt:function(v){return nf(v,1)+" "+u}}],h:190,yfmt:function(v){return nf(v,C()?1:0)},
+    ctx:function(i){var a=pts[i],b=pts[Math.min(i+1,pts.length-1)],c0=pts[Math.max(0,i-1)];var d=(i<pts.length-1?b.v-a.v:a.v-c0.v);var nx=t.hilo.filter(function(p){return p.t>a.t})[0];
+      return (d>0.05?"Rising":d<-0.05?"Falling":"Turning")+(nx?" · next "+(nx.type==="H"?"high":"low")+" "+clock(nx.t.replace(" ","T")):"")},
+    label:"Predicted tide height, next 48 hours, in "+(C()?"metres":"feet")+" above mean lower low water"});
+  return ch;
 }
 function drawCoast(){
   var el=$("#coastBody");if(!el)return;var m=EX.marine,t=EX.tides,h="";
@@ -2700,7 +2827,7 @@ function drawCoast(){
   if(!t.err){
     var nowKey=DATA.current.time.slice(0,10)+" "+DATA.current.time.slice(11,16),nxt=t.hilo.filter(function(p){return p.t>=nowKey}).slice(0,4);
     h+='<div class="sm" style="margin-bottom:8px">Tide predictions: '+esc(t.st.name)+' ('+distTxt(t.dist)+' away), height above mean lower low water</div>'+
-      '<div class="tiles">'+nxt.map(function(p){return tileH(p.type==="H"?"High tide":"Low tide",ft(+p.v),clock(p.t.replace(" ","T"))+(p.t.slice(0,10)!==nowKey.slice(0,10)?" · "+new Date(p.t.slice(0,10)+"T12:00:00").toLocaleDateString("en-US",{weekday:"short"}):""),p.type==="H"?"":"")}).join("")+'</div><div class="scroll" style="margin-top:10px">'+tideSvg(t)+'</div>';
+      '<div class="tiles">'+nxt.map(function(p){return tileH(p.type==="H"?"High tide":"Low tide",ft(+p.v),clock(p.t.replace(" ","T"))+(p.t.slice(0,10)!==nowKey.slice(0,10)?" · "+new Date(p.t.slice(0,10)+"T12:00:00").toLocaleDateString("en-US",{weekday:"short"}):""),p.type==="H"?"":"")}).join("")+'</div><div class="hd" style="margin:12px 0 6px"><h3 style="margin:0">Tide, next 48 hours ('+(C()?"m":"ft")+')</h3>'+hint()+'</div><div class="scroll">'+tideSvg(t)+'</div>';
   }else h+='<div class="ok">No NOAA tide station within 75 miles.</div>';
   var d=m.d,ok=!m.err&&d&&d.hourly&&d.hourly.wave_height&&d.hourly.wave_height.some(function(v){return v!=null});
   if(ok){
@@ -2711,8 +2838,8 @@ function drawCoast(){
     h+='<h3>Waves and swell</h3><div class="tiles">'+tileH("Wave height",ft(H.wave_height[i0]),"Period "+nf(H.wave_period&&H.wave_period[i0],0)+" s · from "+cardinal(H.wave_direction&&H.wave_direction[i0]))+
       tileH("Swell",ft(H.swell_wave_height&&H.swell_wave_height[i0]),"Period "+nf(H.swell_wave_period&&H.swell_wave_period[i0],0)+" s · from "+cardinal(H.swell_wave_direction&&H.swell_wave_direction[i0]))+
       tileH("Water temp",T(sstF),"Sea surface")+'</div>'+
-      '<div class="legend" style="margin-top:10px"><span><i style="background:var(--accent)"></i>Wave height</span><span><i style="background:var(--muted)"></i>Swell</span></div><div class="scroll">'+
-      chartSvg({N:N,times:H.time.slice(i0),series:[{v:wv,color:"var(--accent)",fill:1},{v:sw,color:"var(--muted)",dash:"5 4",w:1.6}],zero:true,yfmt:function(v){return nf(v,C()?1:0)},label:"Wave and swell height, next 48 hours"})+'</div>';
+      '<div class="legend" style="margin-top:10px"><span><i style="background:var(--s1)"></i>Wave height</span><span><i class="dash" style="color:var(--s4)"></i>Swell</span>'+hint()+'</div><div class="scroll">'+
+      chartSvg({N:N,times:H.time.slice(i0),series:[{v:wv,color:"var(--s1)",fill:1,name:"Waves",fmt:function(v){return nf(v,1)+(C()?" m":" ft")}},{v:sw,color:"var(--s4)",dash:"5 4",w:1.8,name:"Swell",fmt:function(v){return nf(v,1)+(C()?" m":" ft")}}],zero:true,yfmt:function(v){return nf(v,C()?1:0)},label:"Wave and swell height, next 48 hours"})+'</div>';
   }else if(t.err)h='<div class="ok">No tide or wave data for this location. This card covers coastal areas.</div>';
   else h+='<div class="note">No wave data for this location.</div>';
   el.innerHTML=h;
@@ -2721,7 +2848,8 @@ function loadLife(){loadAQ();loadCoast()}
 function drawLife(){drawAQ();drawCoast()}
 
 /* ---------- multi-model comparison + NWS text ---------- */
-var MODELS=[["ecmwf_ifs025","ECMWF","var(--m1)"],["gfs_seamless","GFS","var(--m2)"],["icon_seamless","ICON","var(--m3)"],["gem_seamless","GEM","var(--m4)"]];
+var MODELS=[["ecmwf_ifs025","ECMWF","var(--s1)",""],["gfs_seamless","GFS","var(--s2)",""],["icon_seamless","ICON","var(--s3)","6 4"],["gem_seamless","GEM","var(--s4)","2 3"]];
+var MODEL_INK=["var(--s1)","var(--s2-ink)","var(--s3-ink)","var(--s4)"];
 function loadCompare(){
   if(EX.models)return;EX.models={loading:1};var key=EX.key;
   var p=new URLSearchParams({latitude:loc.lat,longitude:loc.lon,timezone:"auto",forecast_days:7,temperature_unit:"fahrenheit",wind_speed_unit:"mph",precipitation_unit:"inch",models:MODELS.map(function(m){return m[0]}).join(","),
@@ -2741,11 +2869,15 @@ function drawCompare(){
   if(m.err){el.innerHTML='<div class="err ok">Could not load the model comparison. Check your connection.</div>';return}
   var d=m.d,Hh=d.hourly,Dd=d.daily,n=MODELS.length;
   var s0=Math.max(0,Hh.time.indexOf(DATA.current.time.slice(0,13)+":00")),N=Math.min(72,Hh.time.length-s0);
-  var legend='<div class="legend">'+MODELS.map(function(x){return '<span><i style="background:'+x[2]+'"></i>'+x[1]+'</span>'}).join("")+'</div>';
-  function series(name,conv,cum){return MODELS.map(function(x){var a=Hh[name+"_"+x[0]],out=[],run=0;for(var i=0;i<N;i++){var v=a?a[s0+i]:null;if(v==null){out.push(null);continue}run+=v;out.push(conv(cum?run:v))}return {v:out,color:x[2],w:2}})}
-  var tS=series("temperature_2m",cvT),gS=series("wind_gusts_10m",cvW),pS=series("precipitation",function(v){return C()?v*25.4:v},true);
+  var legend='<div class="legend">'+MODELS.map(function(x){return '<span><i'+(x[3]?' class="dash"':'')+' style="'+(x[3]?'color:':'background:')+x[2]+'"></i>'+x[1]+'</span>'}).join("")+hint()+'</div>';
+  function series(name,conv,cum,fmt){return MODELS.map(function(x){var a=Hh[name+"_"+x[0]],out=[],run=0;for(var i=0;i<N;i++){var v=a?a[s0+i]:null;if(v==null){out.push(null);continue}run+=v;out.push(conv(cum?run:v))}return {v:out,color:x[2],w:2.2,dash:x[3]||null,name:x[1],fmt:fmt}})}
+  var fT=function(v){return nf(v,0)+"°"},fG=function(v){return nf(v,0)+" "+wuL()},fP=function(v){return nf(v,C()?1:2)+" "+prU()};
+  var tS=series("temperature_2m",cvT,false,fT),gS=series("wind_gusts_10m",cvW,false,fG),pS=series("precipitation",function(v){return C()?v*25.4:v},true,fP);
   var times=Hh.time.slice(s0);
-  var ch=function(s,label,fmt,zero){return '<div class="scroll">'+chartSvg({N:N,times:times,series:s,zero:zero,yfmt:fmt,label:label})+'</div>'};
+  function cmpTip(ss){return function(i){var vs=ss.filter(function(x){return x.v[i]!=null});if(!vs.length)return ["No data",tLab(times[i],false),""];
+    var mn=Math.min.apply(null,vs.map(function(x){return x.v[i]})),mx=Math.max.apply(null,vs.map(function(x){return x.v[i]}));
+    return [Math.abs(mx-mn)<1e-9?vs[0].fmt(mn):vs[0].fmt(mn)+" to "+vs[0].fmt(mx),tLab(times[i],false)+(vs.length>1?" · spread "+vs[0].fmt(mx-mn):""),vs.map(function(x){return x.name+" "+x.fmt(x.v[i])}).join(" · ")]}}
+  var ch=function(s,label,fmt,zero){return '<div class="scroll">'+chartSvg({N:N,times:times,series:s,zero:zero,yfmt:fmt,label:label,tip:cmpTip(s)})+'</div>'};
   /* agreement table */
   var rows="",firstSplit=-1,firstLow=-1;
   for(var i=0;i<Dd.time.length;i++){
@@ -2757,18 +2889,18 @@ function drawCompare(){
       else if(sp(hi)>3||(wet>0&&wet<tot)||sp(pr)>0.15||sp(gu)>8)conf="Medium";
     }else conf="–";
     if(conf==="Low"&&firstLow<0)firstLow=i;if((conf==="Low"||conf==="Medium")&&firstSplit<0)firstSplit=i;
-    var cell=function(a,f){return '<td>'+MODELS.map(function(x,mi){return '<span style="color:'+x[2]+'">'+(a[mi]==null?"–":f(a[mi]))+'</span>'}).join(' ')+'</td>'};
+    var cell=function(a,f){return '<td>'+MODELS.map(function(x,mi){return '<span style="color:'+MODEL_INK[mi]+'">'+(a[mi]==null?"–":f(a[mi]))+'</span>'}).join(' ')+'</td>'};
     rows+='<tr><td>'+dayName(Dd.time[i],i)+'</td>'+cell(hi,function(v){return nf(cvT(v))})+cell(pr,function(v){return v<0.005?"0":PR(v,C()?0:2)})+cell(gu,function(v){return nf(cvW(v))})+
       '<td><span class="conf '+(conf==="High"?"c1":conf==="Medium"?"c2":conf==="Low"?"c3":"")+'">'+conf+'</span></td></tr>';
   }
   var verdict=firstSplit<0?"All four models agree through the whole week.":firstSplit===0?"The models already disagree today.":"The models agree through "+dayName(Dd.time[firstSplit-1],firstSplit-1)+(firstLow>=0?"; confidence drops sharply on "+dayName(Dd.time[firstLow],firstLow)+".":"; some differences appear from "+dayName(Dd.time[firstSplit],firstSplit)+".");
   el.innerHTML='<p class="summary" style="font-size:16px;margin:0 0 12px">'+esc(verdict)+'</p>'+
     '<div class="scroll"><table><thead><tr><th>Day</th><th>High '+(C()?"°C":"°F")+'</th><th>Rain '+prU()+'</th><th>Max gust '+wuL()+'</th><th>Agreement</th></tr></thead><tbody>'+rows+'</tbody></table></div>'+
-    '<div class="legend" style="margin-top:8px">'+MODELS.map(function(x){return '<span style="color:'+x[2]+';font-weight:600">'+x[1]+'</span>'}).join("")+'<span>Order in each cell</span></div>'+
+    '<div class="legend" style="margin-top:8px">'+MODELS.map(function(x,mi){return '<span style="color:'+MODEL_INK[mi]+';font-weight:600">'+x[1]+'</span>'}).join("")+'<span>Order in each cell</span></div>'+
     '<div class="note">Agreement scores the gap between models on high temperature, rain and gusts. Tight cluster: dependable. Wide fan: plan for a range.</div>'+
     '<h3>Temperature ('+(C()?"°C":"°F")+'), next 72 hours</h3>'+legend+ch(tS,"Temperature by model",function(v){return v+"°"})+
-    '<h3>Wind gusts ('+wuL()+')</h3>'+ch(gS,"Wind gusts by model",function(v){return v},true)+
-    '<h3>Cumulative precipitation ('+prU()+')</h3>'+ch(pS,"Cumulative precipitation by model",function(v){return nf(v,C()?0:1)},true);
+    '<h3>Wind gusts ('+wuL()+')</h3>'+legend+ch(gS,"Wind gusts by model",function(v){return v},true)+
+    '<h3>Cumulative precipitation ('+prU()+')</h3>'+legend+ch(pS,"Cumulative precipitation by model",function(v){return nf(v,C()?0:1)},true);
 }
 function drawNws(){
   var a=$("#nwsFx"),b=$("#afdBody");
@@ -2952,27 +3084,31 @@ $("#mapPlay").addEventListener("click",function(){if(MAP.map)togglePlay()});
 $("#mapSlider").addEventListener("input",sliderChanged);
 
 applyTheme();
-var setBtn=$("#settingsBtn"),setPanel=$("#settings"),dataBtn=$("#dataBtn"),dataMenu=$("#dataMenu");
-var MENUS=[{b:setBtn,p:setPanel},{b:dataBtn,p:dataMenu}];
+var dataBtn=$("#dataBtn"),dataMenu=$("#dataMenu");
+var MENUS=[{b:dataBtn,p:dataMenu}];
 function closeMenus(){MENUS.forEach(function(m){m.p.hidden=true;m.b.setAttribute("aria-expanded","false")})}
-function closeSettings(){closeMenus()}
-MENUS.forEach(function(m){m.b.addEventListener("click",function(e){
-  e.stopPropagation();
-  var was=!m.p.hidden;closeMenus();if(was)return;
-  var top=m.b.getBoundingClientRect().bottom+6;m.p.style.top=top+"px";m.p.style.maxHeight=Math.max(220,window.innerHeight-top-12)+"px";
-  m.p.hidden=false;m.b.setAttribute("aria-expanded","true");
-  if(m.p===dataMenu)bkRefresh();
-})});
-document.addEventListener("click",function(e){if(!e.target.closest(".panel-set"))closeMenus();if(!e.target.closest("#bnSheet,#bnMore"))closeSheet()});
+function openData(){
+  closeMenus();dmRefresh();
+  dataMenu.hidden=false;dataBtn.setAttribute("aria-expanded","true");   // aria-expanded also lifts the bar above the bottom nav on phones (shared CSS)
+  var f=dataMenu.querySelector(".mb-dm-it:not([hidden])");if(f)f.focus();
+}
+dataBtn.addEventListener("click",function(e){e.stopPropagation();if(!dataMenu.hidden){closeMenus();return}openData()});
+dataMenu.addEventListener("keydown",function(e){
+  var it=[].slice.call(dataMenu.querySelectorAll(".mb-dm-it")).filter(function(x){return !x.hidden}),i=it.indexOf(document.activeElement),n=it.length;if(!n)return;
+  var k={ArrowDown:(i+1)%n,ArrowUp:(i-1+n)%n,Home:0,End:n-1}[e.key];
+  if(k!=null){e.preventDefault();it[k].focus()}else if(e.key==="Tab"){closeMenus()}
+});
+document.addEventListener("click",function(e){if(!dataMenu.hidden&&!e.target.closest("#dataMenu,#dataBtn"))closeMenus();if(!e.target.closest("#bnSheet,#bnMore"))closeSheet()});
 document.addEventListener("keydown",function(e){if(e.key!=="Escape")return;
   var open=MENUS.filter(function(m){return !m.p.hidden})[0];
   if(open){closeMenus();open.b.focus()}
   if(!$("#bnSheet").hidden){closeSheet();$("#bnMore").focus()}
 });
 $("#themeSw").addEventListener("click",function(){prefs.theme=prefs.theme==="dark"?"light":"dark";savePrefs();applyTheme()});
+document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-theme-set]");if(!b)return;prefs.theme=b.dataset.themeSet==="dark"?"dark":"light";savePrefs();applyTheme()});
 function closeSheet(){$("#bnSheet").hidden=true;$("#bnMore").setAttribute("aria-expanded","false")}
-$("#bnMore").addEventListener("click",function(e){e.stopPropagation();var o=$("#bnSheet").hidden;$("#bnSheet").hidden=!o;this.setAttribute("aria-expanded",o?"true":"false")});
-setPanel.querySelectorAll(".seg button").forEach(function(b){b.addEventListener("click",function(){prefs.mode=b.dataset.mode;savePrefs();applyMode()})});
+$("#bnMore").addEventListener("click",function(e){e.stopPropagation();var o=$("#bnSheet").hidden;$("#bnSheet").hidden=!o;this.setAttribute("aria-expanded",o?"true":"false");if(o){var f=$("#bnSheet button:not([hidden])");if(f)f.focus()}});
+document.querySelectorAll("#modeSeg button").forEach(function(b){b.addEventListener("click",function(){prefs.mode=b.dataset.mode;savePrefs();applyMode()})});
 /* after a section switch, keep the new section's top in view (below the sticky page bar on wider screens) */
 function toPanels(){var h=$("#hero"),pb=$("#top");if(!h)return;
   var off=pb&&getComputedStyle(pb).position==="sticky"?pb.offsetHeight:0,y=Math.max(0,h.getBoundingClientRect().bottom+window.scrollY-off);
@@ -2980,138 +3116,158 @@ function toPanels(){var h=$("#hero"),pb=$("#top");if(!h)return;
 function tabClick(e){
   var b=e.target.closest("button[data-tab]");if(!b)return;
   closeSheet();showTab(b.dataset.tab);savePrefs();
-  toPanels();
+  if(VIEW==="settings")window.scrollTo({top:0,behavior:"auto"});else toPanels();
 }
-$("#tabs").addEventListener("click",tabClick);$("#bnav").addEventListener("click",tabClick);$("#bnSheet").addEventListener("click",tabClick);
-/* brand block (sidebar and phone top bar): always back to the start view, without a reload */
+$("#tabs").addEventListener("click",tabClick);$("#sideEnd").addEventListener("click",tabClick);$("#bnav").addEventListener("click",tabClick);$("#bnSheet").addEventListener("click",tabClick);
+/* brand block (sidebar and phone top bar): always back to Home, without a reload */
 document.querySelectorAll("a.brand").forEach(function(a){a.addEventListener("click",function(e){
   if(e.ctrlKey||e.metaKey||e.shiftKey||e.button)return;
   e.preventDefault();closeMenus();closeSheet();showTab("overview");savePrefs();window.scrollTo({top:0,behavior:"auto"});
 })});
 
-/* ---------- onboarding ---------- */
-var ob=$("#ob"),OB={step:1,pick:null,mode:"everyday",alerts:null,msg:"",busy:false,replay:false,results:[]};
+/* ---------- welcome / first run (MB Suite v3.3 .mbw): Welcome → Pick a look → forecast place → view, alerts ---------- */
+var ob=$("#ob"),OBN=4,OB={step:0,pick:null,keep:false,busy:false,replay:false,results:[],msg:"",alertMsg:""};
 var GEO="https://geocoding-api.open-meteo.com/v1/search?count=6&language=en&name=";
-function inertApp(v){try{document.querySelectorAll(".mb-side,.page-bar,.wrap,.bnav").forEach(function(e){e.inert=v})}catch(e){}}
+var ARROW='<svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+var OBI={
+  geo:'<svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2"/></svg>',
+  peak:'<svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 19 10 7l4 6 2-3 5 9z"/><path d="m8.2 10 1.8 1.6L12 10"/></svg>',
+  pin:'<svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>',
+  bell:'<svg class="uic" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg>',
+  sync:'<svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 11a8 8 0 0 0-14.7-4.4L4 8"/><path d="M4 3v5h5"/><path d="M4 13a8 8 0 0 0 14.7 4.4L20 16"/><path d="M20 21v-5h-5"/></svg>',
+  imp:'<svg class="uic" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 20h14"/></svg>'
+};
+function inertApp(v){try{document.querySelectorAll(".mb-side,.page-bar,.wrap,.bnav,.bn-sheet,.toast").forEach(function(e){e.inert=v})}catch(e){}}
 function obOpen(replay){
-  OB={step:1,pick:null,mode:prefs.mode,alerts:null,alertMsg:"",busy:false,replay:!!replay,results:[]};
-  ob.hidden=false;setTitle();inertApp(true);obDraw();
+  OB={step:0,pick:null,keep:false,busy:false,replay:!!replay,results:[],msg:"",alertMsg:""};
+  closeMenus();closeSheet();ob.hidden=false;inertApp(true);obStep(0);setTitle();
 }
 function obClose(){
-  ob.hidden=true;setTitle();inertApp(false);
+  if(ob.hidden)return;
+  ob.hidden=true;inertApp(false);setTitle();
   store.set("weather.onboarded",true);
   if(!reqId)load();
-  if(OB.replay)setBtn.focus();
+  if(OB.replay){var r=$("#replay");if(r)r.focus()}
 }
 function obCommit(){
   if(!OB.pick)return;
   home={name:OB.pick.name,lat:OB.pick.lat,lon:OB.pick.lon};store.set("weather.home",home);
   loc=home;load();mapRecenter();
 }
-function obTop(n){
-  var pct=n>3?100:Math.round(n/4*100);
-  return '<div class="ob-top"><span class="sm">'+(n>3?"All set":"Step "+n+" of 3")+'</span>'+(n>3?'':'<button type="button" class="link" data-a="skip">'+(OB.replay?"Close":"Skip setup")+'</button>')+'</div>'+
-    '<div class="ob-prog" role="progressbar" aria-label="Setup progress" aria-valuemin="0" aria-valuemax="3" aria-valuenow="'+Math.min(n,3)+'"><i style="width:'+pct+'%"></i></div>';
+function obAcct(){
+  var el=$("#mbwAcct");if(!el)return;
+  if(!SYNC){el.innerHTML="";return}
+  el.innerHTML=SYNC.status().signedIn?'<span class="mbw-signed">Signed in</span>':'<button class="mbw-link acc" type="button" data-a="signin">Sign in</button>';
 }
-function obBack(){return '<button type="button" class="link" data-a="back">Back</button>'}
-function obDraw(){
-  var s=OB.step,h="";
-  if(s===1){
-    var art=$("#obArt");
-    h=obTop(1)+(art?art.innerHTML:"")+'<h1 id="obTitle">Where do you want your forecast?</h1><p>Set your home location. You can change it later.</p>'+
-      '<button type="button" class="btn primary big" data-a="geo" data-focus>Use my current location</button>'+
-      '<div class="ob-or">or</div>'+
-      '<input id="obq" type="search" class="ob-in" placeholder="Search a town or ZIP" autocomplete="off" aria-label="Search for a place">'+
-      '<ul class="ob-res" id="obres"></ul><div class="note" id="obmsg" role="status"></div>'+
-      '<div class="fld">Appearance<div class="seg" role="group" aria-label="Appearance"><button type="button" data-a="theme" data-t="light" aria-pressed="'+(prefs.theme!=="dark")+'">Light</button><button type="button" data-a="theme" data-t="dark" aria-pressed="'+(prefs.theme==="dark")+'">Dark</button></div></div>'+
-      '<p class="sm">Have a backup file? <button type="button" class="linkbtn" data-a="import">Import it</button></p>'+
-      '<p class="sm">No account needed. Your settings stay on this device. Weather services receive the coordinates you look up. <button type="button" class="linkbtn" data-a="about">Privacy and terms</button></p>';
-  }else if(s===2){
-    h=obTop(2)+'<h1 id="obTitle">How do you want to see it?</h1><p>Pick one. You can switch anytime in Settings.</p>'+
-      '<button type="button" class="ob-opt rec" data-a="mode" data-m="everyday" data-focus><span class="rb">Recommended</span><b>Simple</b><span>Now, hourly, radar map, activity windows and everyday scores.</span></button>'+
-      '<button type="button" class="ob-opt" data-a="mode" data-m="pro"><b>Detailed</b><span>Adds model comparison, soil and air data.</span></button>'+
-      '<p class="sm">Units: '+(prefs.tu==="C"?"°C":"°F")+' · '+wuL()+'. Change them in Settings.</p>'+obBack();
-  }else if(s===3){
-    var can=canNotify(),done=OB.alertMsg;
-    h=obTop(3)+'<h1 id="obTitle">Get alerts for bad weather?</h1>'+
-      '<p>'+esc(done||(can?"Official NWS alerts (US) and forecast warnings for "+(home?home.name:loc.name)+". They arrive while this page is open.":"This browser can't send notifications. Alerts still show on your Overview."))+'</p>'+
-      ((can&&!done)?'<button type="button" class="btn primary big" data-a="alerts-on" data-focus>Turn on alerts</button><button type="button" class="btn big" data-a="alerts-off">Not now</button>':'<button type="button" class="btn primary big" data-a="next" data-focus>Continue</button>')+obBack();
-  }else{
-    var nm=home?home.name:loc.name;
-    h=obTop(4)+'<div class="ob-done" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M10 25l9 9 19-20"/></svg></div>'+
-      '<h1 id="obTitle" class="ob-center">You are all set</h1>'+
-      '<ul class="ob-sum"><li><span>Home</span><b>'+esc(nm)+'</b></li><li><span>View</span><b>'+(prefs.mode==="pro"?"Detailed":"Simple")+'</b></li><li><span>Alerts</span><b>'+(prefs.notify?"On":"Off")+'</b></li></ul>'+
-      '<button type="button" class="btn primary big" data-a="finish" data-focus>Show my forecast</button>';
-  }
-  ob.innerHTML='<div class="ob-card">'+h+'</div>';
-  var f=ob.querySelector("[data-focus]");if(f)f.focus();
-  ob.scrollTop=0;
+function obStep(i){
+  OB.step=i;
+  ob.querySelectorAll(".mbw-body").forEach(function(b){b.hidden=+b.dataset.step!==i});
+  ob.querySelectorAll(".mbw-prog i").forEach(function(x,k){x.classList.toggle("on",k<=i)});
+  $("#mbwStep").textContent="Step "+(i+1)+" of "+OBN;
+  $("#mbwBack").hidden=i===0;
+  $("#mbwSkip").textContent=OB.replay?"Close":"Skip";
+  if(i===2)obLoc();else if(i===3)obLast();
+  $("#mbwNext").innerHTML=(i===OBN-1?"Show my forecast":"Next")+ARROW;
+  ob.setAttribute("aria-labelledby","mbwT"+i);
+  obAcct();applyTheme();
+  var body=ob.querySelector('.mbw-body[data-step="'+i+'"]');if(body)body.scrollTop=0;
+  var f=body&&body.querySelector("[data-focus]");(f||$("#mbwNext")).focus();
 }
-function obMsg(t){var m=$("#obmsg");if(m)m.textContent=t}
+function obResHtml(){
+  return OB.results.map(function(r,i){var on=OB.pick&&!OB.pick.geo&&OB.pick.lat===r.lat&&OB.pick.lon===r.lon;
+    return '<li><button type="button" class="mbw-choice" data-a="pick" data-i="'+i+'" aria-pressed="'+on+'">'+OBI.pin+'<span><b>'+esc(r.name)+'</b><small>'+esc(r.sub)+'</small></span></button></li>'}).join("");
+}
+function obLoc(){
+  var body=ob.querySelector('.mbw-body[data-step="2"]'),cur=home?home.name:"";
+  var geoOn=!!(OB.pick&&OB.pick.geo),keepOn=!OB.pick&&OB.keep&&!home;
+  body.innerHTML='<h2 id="mbwT2">Where do you want your forecast?</h2><p class="mbw-lead">'+(cur?'Your home is <b>'+esc(cur)+'</b>. Pick another place or keep it.':'This becomes your home location. Change it anytime from the top of the page.')+'</p>'+
+    '<div class="mbw-choices"><button type="button" class="mbw-choice" data-a="geo" aria-pressed="'+geoOn+'" data-focus'+(OB.busy?' disabled':'')+'>'+OBI.geo+'<span><b>'+(OB.busy?"Finding you…":"Use my current location")+'</b><small>Your browser asks first. Rounded to about 1 km.</small></span></button></div>'+
+    '<label class="mbw-field"><span>Or search a town or ZIP</span><input id="obq" type="search" autocomplete="off" placeholder="Town or ZIP code" value="'+esc(OB.q||"")+'"></label>'+
+    '<ul class="mbw-res" id="obres">'+obResHtml()+'</ul><p class="mbw-sub mbw-msg" id="obmsg" role="status">'+esc(OB.msg||"")+'</p>'+
+    (home?'':'<div class="mbw-choices"><button type="button" class="mbw-choice" data-a="keep" aria-pressed="'+keepOn+'">'+OBI.peak+'<span><b>Keep the sample for now</b><small>Mount Washington, NH. It is never saved as your home.</small></span></button></div>');
+}
+function obLast(){
+  var body=ob.querySelector('.mbw-body[data-step="3"]'),can=canNotify(),on=prefs.notify&&can&&Notification.permission==="granted";
+  var am=OB.alertMsg||(can?(on?"Alerts are on for "+(home?home.name:loc.name)+".":"Official NWS alerts (US) and forecast warnings for "+(home?home.name:loc.name)+". They arrive while this page is open."):"This browser can't send notifications. Alerts still show on Home.");
+  body.innerHTML='<h2 id="mbwT3">How do you want to see it?</h2><p class="mbw-lead">Pick one. You can switch anytime in Settings.</p>'+
+    '<div class="mbw-choices" role="group" aria-label="View">'+
+      '<button type="button" class="mbw-choice" data-a="mode" data-m="everyday" aria-pressed="'+(prefs.mode!=="pro")+'" data-focus><span><b>Simple · recommended</b><small>Now, hourly, radar map, activity windows and everyday scores.</small></span></button>'+
+      '<button type="button" class="mbw-choice" data-a="mode" data-m="pro" aria-pressed="'+(prefs.mode==="pro")+'"><span><b>Detailed</b><small>Adds model comparison, soil and air data.</small></span></button></div>'+
+    '<div class="mbw-alerts">'+OBI.bell+'<span><b>Alerts for bad weather</b><small role="status">'+esc(am)+'</small></span>'+((can&&!on&&Notification.permission!=="denied")?'<button type="button" class="mbw-btn sm" data-a="alerts-on">Turn on alerts</button>':'')+'</div>'+
+    '<p class="mbw-sub" style="margin-top:12px">Units: '+(prefs.tu==="C"?"°C":"°F")+' · '+wuL()+'. Change them in Settings.</p>'+
+    '<div class="mbw-alt"><span>Moving from another device?</span>'+(SYNC?'<button class="mbw-btn sm" type="button" data-a="signin">'+OBI.sync+'Sign in to sync</button>':'')+'<button class="mbw-btn sm" type="button" data-a="import">'+OBI.imp+'Import a backup</button></div>';
+}
+function obMsg(t){OB.msg=t;var m=$("#obmsg");if(m)m.textContent=t}
 var obT=null,obS=0;
 ob.addEventListener("input",function(e){
   if(e.target.id!=="obq")return;
-  var v=e.target.value.trim();clearTimeout(obT);
+  var v=e.target.value.trim();OB.q=e.target.value;clearTimeout(obT);
   var ul=$("#obres");
-  if(v.length<2){ul.innerHTML="";obMsg("");return}
+  if(v.length<2){OB.results=[];ul.innerHTML="";obMsg("");return}
   obMsg("Searching…");
   obT=setTimeout(function(){
     var id=++obS;
     fetch(GEO+encodeURIComponent(v)).then(function(r){if(!r.ok)throw new Error("HTTP "+r.status);return r.json()}).then(function(d){
       if(id!==obS)return;
       OB.results=(d.results||[]).map(function(p){return{name:p.name+(p.admin1?", "+(p.country_code==="US"?abbr(p.admin1):p.admin1):""),lat:+p.latitude.toFixed(4),lon:+p.longitude.toFixed(4),sub:[p.admin1,p.country].filter(Boolean).join(", ")}});
-      ul.innerHTML=OB.results.map(function(r,i){return '<li><button type="button" data-a="pick" data-i="'+i+'">'+esc(r.name)+'<small>'+esc(r.sub)+'</small></button></li>'}).join("");
+      var u2=$("#obres");if(u2)u2.innerHTML=obResHtml();
       obMsg(OB.results.length?"":"No places found for “"+v+"”. Check the spelling or try a nearby town.");
     }).catch(function(){if(id!==obS)return;obMsg("Search failed. Check your connection and try again.")});
   },200);
 });
-ob.addEventListener("keydown",function(e){if(e.key==="Enter"&&e.target.id==="obq"){var f=ob.querySelector('[data-a="pick"]');if(f){e.preventDefault();f.click()}}});
+ob.addEventListener("keydown",function(e){
+  if(e.key==="Enter"&&e.target.id==="obq"){var f=ob.querySelector('[data-a="pick"]');if(f){e.preventDefault();f.click()}return}
+  if(e.key==="Escape"){if(document.querySelector("dialog[open]"))return;e.preventDefault();obClose();return}
+  if(e.key==="Tab"){   // keep Tab inside the welcome card
+    var fs=[].slice.call(ob.querySelectorAll('button,input,select,a[href],[tabindex]:not([tabindex="-1"])')).filter(function(x){return !x.disabled&&x.offsetParent!==null});
+    if(!fs.length)return;var a=fs[0],z=fs[fs.length-1];
+    if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+  }
+});
+function obPicked(){obLoc();obMsg("Home set to "+OB.pick.name+". Your forecast is loading.");$("#mbwNext").focus()}
 ob.addEventListener("click",function(e){
   var b=e.target.closest("[data-a]");if(!b)return;var a=b.dataset.a;
-  if(a==="about"){openAbout();return}
-  if(a==="skip"){obClose();return}
-  if(a==="theme"){prefs.theme=b.dataset.t;savePrefs();applyTheme();ob.querySelectorAll('[data-a="theme"]').forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});return}
+  if(a==="signin"){if(SYNC)SYNC.open();return}
   if(a==="import"){pickImport();return}
-  if(a==="back"){OB.step=Math.max(1,OB.step-1);OB.alertMsg="";obDraw();return}
   if(a==="geo"){
     if(OB.busy)return;
     if(!navigator.geolocation){obMsg("This browser can't share your location. Search for your town below.");$("#obq").focus();return}
-    OB.busy=true;b.textContent="Finding you…";b.disabled=true;
+    OB.busy=true;OB.keep=false;obLoc();
     navigator.geolocation.getCurrentPosition(function(p){
-      OB.busy=false;OB.pick={name:"My location",lat:+p.coords.latitude.toFixed(2),lon:+p.coords.longitude.toFixed(2)};obCommit();OB.step=2;obDraw();
+      OB.busy=false;OB.pick={name:"My location",lat:+p.coords.latitude.toFixed(2),lon:+p.coords.longitude.toFixed(2),geo:true};obCommit();obPicked();
     },function(){
-      OB.busy=false;b.disabled=false;b.textContent="Try location again";
-      obMsg("Location is blocked or timed out. Search below, or allow location in your browser and try again.");$("#obq").focus();
+      OB.busy=false;obLoc();obMsg("Location is blocked or timed out. Search below, or allow location in your browser and try again.");var q=$("#obq");if(q)q.focus();
     },{timeout:10000});
     return;
   }
-  if(a==="pick"){OB.pick=OB.results[+b.dataset.i];if(!OB.pick)return;obCommit();OB.step=2;obDraw();return}
-  if(a==="mode"){prefs.mode=b.dataset.m;savePrefs();applyMode();OB.step=3;obDraw();return}
+  if(a==="pick"){var r=OB.results[+b.dataset.i];if(!r)return;OB.pick={name:r.name,lat:r.lat,lon:r.lon};OB.keep=false;obCommit();obPicked();return}
+  if(a==="keep"){OB.keep=true;OB.pick=null;obLoc();obMsg("Showing the sample location. Search a town or tap Locate at the top of the page when you're ready.");$("#mbwNext").focus();return}
+  if(a==="mode"){prefs.mode=b.dataset.m;savePrefs();applyMode();obLast();var f=ob.querySelector('[data-a="mode"][data-m="'+prefs.mode+'"]');if(f)f.focus();return}
   if(a==="alerts-on"){
     askNotify(function(p){
       OB.alertMsg=p==="granted"?"Alerts are on for "+(home?home.name:loc.name)+".":p==="denied"?"Notifications are blocked for this site. Allow them in your browser's site settings, or continue without.":"No problem. You can turn alerts on later in Settings.";
-      obDraw();
+      obLast();$("#mbwNext").focus();
     });return;
   }
-  if(a==="alerts-off"||a==="next"){OB.step=4;obDraw();return}
-  if(a==="finish"){obClose();return}
 });
-$("#replay").addEventListener("click",function(){closeSettings();obOpen(true)});
+$("#mbwNext").addEventListener("click",function(){if(OB.step<OBN-1)obStep(OB.step+1);else obClose()});
+$("#mbwBack").addEventListener("click",function(){obStep(Math.max(0,OB.step-1))});
+$("#mbwSkip").addEventListener("click",obClose);
+$("#replay").addEventListener("click",function(){obOpen(true)});
 
 /* ---------- about, export, import, delete ---------- */
 var CONTACT_EMAIL="";
 function openAbout(){var d=$("#about");if(d.showModal){if(!d.open)d.showModal()}else d.setAttribute("open","");setTitle()}
 (function(){var c=CONTACT_EMAIL;if(c&&/^[^\s@<>"]+@[^\s@<>"]+\.[^\s@<>"]+$/.test(c)){$("#contactRow").hidden=false;var a=$("#contactVal");a.textContent=c;a.href="mailto:"+c}})();
-$("#aboutBtn").addEventListener("click",openAbout);$("#aboutSide").addEventListener("click",openAbout);
 $("#aboutClose").addEventListener("click",function(){$("#about").close()});
 $("#about").addEventListener("close",setTitle);
 $("#about").addEventListener("click",function(e){if(e.target===this)this.close()});
-if(/^#(about|privacy|terms)$/.test(location.hash)){openAbout();var hh=document.getElementById("about-"+location.hash.slice(1));if(hh)hh.scrollIntoView({block:"start"})}
+if(/^#(about|privacy|terms|help|whatsnew)$/.test(location.hash)){openAbout();var hh=document.getElementById("about-"+location.hash.slice(1));if(hh)hh.scrollIntoView({block:"start"})}
 document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-about-go]");if(!b)return;closeMenus();openAbout();var h=document.getElementById("about-"+b.getAttribute("data-about-go"));if(h)h.scrollIntoView({block:"start"})});
 
 function inRange(v,lo,hi){return typeof v==="number"&&isFinite(v)&&v>=lo&&v<=hi}
 function cleanImport(o){
-  if(!o||typeof o!=="object"||(o.app!=="weather.mcbflow.com"&&o.app!=="mbweather.online"))return null;
+  if(!o||typeof o!=="object"||(o.app!=="weather.mcbflow.com"&&o.app!=="mbweather.online"))return null; // legacy-import: backups from the old address still import
   var out={},h=o.home;
   if(h){if(typeof h!=="object"||typeof h.name!=="string"||!inRange(h.lat,-90,90)||!inRange(h.lon,-180,180))return null;out.home={name:h.name.replace(/[<>\u0000-\u001f]/g,"").slice(0,80),lat:+h.lat.toFixed(4),lon:+h.lon.toFixed(4)}}
   var p=o.prefs;
@@ -3134,6 +3290,8 @@ function cleanImport(o){
 var FSA=typeof window.showSaveFilePicker==="function";
 var JSON_TYPES=[{description:"weather.mcbflow.com backup (JSON)",accept:{"application/json":[".json"]}}];
 var CSV_TYPES=[{description:"Forecast (CSV)",accept:{"text/csv":[".csv"]}}];
+var PLACES_TYPES=[{description:"Places and settings (CSV)",accept:{"text/csv":[".csv"]}}];
+var ZIP_TYPES=[{description:"weather.mcbflow.com backup (ZIP)",accept:{"application/zip":[".zip"]}}];
 function idb(){return new Promise(function(res,rej){var r=indexedDB.open("weather.backup",1);r.onupgradeneeded=function(){r.result.createObjectStore("h")};r.onsuccess=function(){res(r.result)};r.onerror=function(){rej(r.error)}})}
 function hGet(k){return idb().then(function(db){return new Promise(function(res){var q=db.transaction("h").objectStore("h").get(k);q.onsuccess=function(){res(q.result||null)};q.onerror=function(){res(null)}})}).catch(function(){return null})}
 function hSet(k,v){return idb().then(function(db){return new Promise(function(res){var t=db.transaction("h","readwrite");t.objectStore("h").put(v,k);t.oncomplete=function(){res(true)};t.onerror=function(){res(false)}})}).catch(function(){return false})}
@@ -3204,49 +3362,152 @@ function ago(ms){
   var h=Math.floor(m/60);if(h<24)return h+(h===1?" hour ago":" hours ago");
   var d=Math.floor(h/24);return d+(d===1?" day ago":" days ago");
 }
+function quiet(){return !!(SYNC&&SYNC.status().quietBackups)}
+function stale(){var t=store.get("weather.lastBackup",0);return !quiet()&&(t?(Date.now()-t>7*864e5):!!home)}
+function fmtDay(ms){return new Date(ms).toLocaleDateString("en-US",{month:"short",day:"numeric"})}
 function bkChip(){
-  var t=store.get("weather.lastBackup",0),stale=t?(Date.now()-t>7*864e5):!!home;
-  var c=$("#bkChip");c.textContent=t?"Backed up "+ago(t):"Never backed up";c.classList.toggle("warn",stale);
-  $("#top").classList.toggle("stale",stale);
-  var dot=$("#dataBtn .tb-dot");if(dot)dot.hidden=!stale;
-  dataBtn.setAttribute("aria-label",stale?"Data menu. Backup is overdue.":"Data menu");
+  var t=store.get("weather.lastBackup",0),q=quiet(),st=stale();
+  var c=$("#bkChip");c.textContent=q?"Synced":(t?"Backed up "+ago(t):"Never backed up");c.classList.toggle("warn",st);
+  c.title=q?"Synced to your account. Click to save a file backup too.":"Save backup now";
+  $("#top").classList.toggle("stale",st);
+  var dot=$("#dataBtn .tb-dot");if(dot)dot.hidden=!st;
+  dataBtn.setAttribute("aria-label",st?"Data: back up, sync, export or import. A backup is due.":"Data: back up, sync, export or import");
 }
-function bkRefresh(){
-  bkChip();
+/* The Data list: the same items in the bar's Data menu and in Settings → Backup & data (MB Suite v3.3 §5). */
+var DMI=function(d){return '<svg class="uic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+d+'</svg>'};
+var DM_IC={backup:DMI('<path d="M5 3h11l3 3v15H5z"/><path d="M8 3v5h7V3M8 21v-7h8v7"/>'),sync:DMI('<path d="M20 11a8 8 0 0 0-14.7-4.4L4 8"/><path d="M4 3v5h5"/><path d="M4 13a8 8 0 0 0 14.7 4.4L20 16"/><path d="M20 21v-5h-5"/>'),
+  json:DMI('<path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M10 12c-1 0-1 .5-1 1.5S8.5 15 8 15c.5 0 1 .5 1 1.5s0 1.5 1 1.5M14 12c1 0 1 .5 1 1.5s.5 1.5 1 1.5c-.5 0-1 .5-1 1.5s0 1.5-1 1.5"/>'),
+  csv:DMI('<rect x="3" y="4" width="18" height="16" rx="1.5"/><path d="M3 10h18M3 15h18M9 4v16"/>'),zip:DMI('<path d="M4 7h16v13H4z"/><path d="M3 4h18v3H3zM10 11h4"/>'),
+  fx:DMI('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/>'),imp:DMI('<path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 20h14"/>'),clear:DMI('<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>')};
+function dmList(menu){
+  var r=menu?' role="menuitem"':'',pr=menu?' role="presentation"':'';
+  function it(k,title,desc,cls,extra){return '<button type="button" class="mb-dm-it'+(cls?' '+cls:'')+'"'+r+' data-dm="'+k+'">'+DM_IC[k]+'<span class="t"><b data-dmt="'+k+'">'+title+'</b><small data-dmd="'+k+'">'+desc+'</small></span>'+(extra||'')+'</button>'}
+  return it("backup","Save backup now","Updates your backup file in one click. Best for regular backups.","is-key",'<kbd class="dmk">'+(/Mac|iPhone|iPad/.test(navigator.platform||"")?"⌘S":"Ctrl+S")+'</kbd>')+
+    it("sync","Sync across devices…","Free, optional account. Keeps your phone and computer the same.")+
+    '<div class="mb-dm-sec"'+pr+'>Export</div>'+
+    it("json","Export All (JSON)…","Complete backup of everything. Best for restoring or moving to another browser.")+
+    it("csv","Export All (CSV)…","Spreadsheet copy for Excel, Numbers or Google Sheets. Best for totals and reports.")+
+    it("zip","Export All (ZIP)…","Backup and spreadsheets together in one file. Best for archiving.")+
+    it("fx","Export Forecast (CSV)…","The hourly forecast for the place on screen. Best for planning in a spreadsheet.")+
+    '<div class="mb-dm-sec"'+pr+'>Import</div>'+
+    it("imp","Import Backup…","Restore from a JSON or ZIP file. You see what it holds and choose Replace first.")+
+    '<div class="mb-dm-status"'+pr+'><span class="sq"></span><span class="dms"></span></div>'+
+    '<p class="mb-dm-note"></p><hr class="mb-dm-sep">'+
+    it("clear","Clear all data…","Deletes everything in this browser. You can save a backup first.","danger");
+}
+dataMenu.innerHTML=dmList(true);$("#setData").innerHTML=dmList(false);
+function dmRefresh(){
+  var st=SYNC?SYNC.status():null,inn=!!(st&&st.signedIn),q=quiet(),t=store.get("weather.lastBackup",0),due=stale();
+  function each(sel,fn){document.querySelectorAll(sel).forEach(fn)}
+  each('[data-dmd="backup"]',function(e){e.textContent=t?"Updates your backup file in one click. Best for regular backups.":"Choose where to keep your backup file. After that it's one click."});
+  each('[data-dm="sync"]',function(e){e.hidden=!SYNC});
+  each('[data-dmt="sync"]',function(e){e.textContent=inn?"Sync: "+st.label:"Sync across devices…"});
+  each('[data-dmd="sync"]',function(e){e.textContent=inn?"Signed in as "+st.email:"Free, optional account. Keeps your phone and computer the same."});
+  each('[data-dmd="clear"]',function(e){e.textContent=inn?"Deletes everything here and your synced copy.":"Deletes everything in this browser. You can save a backup first."});
+  each(".mb-dm-status",function(e){
+    e.classList.toggle("ok",q||(!!t&&!due));e.classList.toggle("warn",due);
+    e.querySelector(".dms").textContent=q?"Synced to your account · last file backup "+(t?fmtDay(t):"none yet"):t?"Last backup "+fmtDay(t)+" · "+ago(t):"Never backed up";
+  });
+  each(".mb-dm-note",function(e){e.textContent=inn?"Synced to your mcbflow.com account. A file backup now and then is still a good idea.":"Your home, settings and limits are stored in this browser on this device. Clearing your browser data deletes them, so keep a backup. Forecasts are looked up online for the places you choose."});
+  bkFile();
+}
+/* Settings → Backup & data: where Save backup now writes (browsers that let the app keep a file) */
+function bkFile(){
+  var card=$("#bkFileCard");if(!card)return;
+  if(!FSA){card.hidden=false;$("#bkFileTxt").textContent="This browser saves backups to your Downloads folder.";$("#bkMove").hidden=true;return}
   Promise.all([hGet("json"),hGet("csv")]).then(function(a){
-    var el=$("#bkStatus"),t=store.get("weather.lastBackup",0);el.textContent="";
-    function line(x){var d=document.createElement("div");d.textContent=x;el.appendChild(d)}
-    line(t?"Last backup: "+new Date(t).toLocaleString([],{dateStyle:"medium",timeStyle:"short"}):"No backup saved yet.");
-    if(!FSA)line("This browser saves backups to your Downloads folder.");
-    else{
-      line(a[0]?"JSON file: "+a[0].name+" (in the folder you chose)":"Save backup now asks where to save the first time.");
-      if(a[1])line("CSV file: "+a[1].name+" (refreshed with each backup)");
-      var b=document.createElement("button");b.type="button";b.className="linkbtn";b.textContent="Change location…";b.onclick=function(){closeMenus();saveBackup(true)};el.appendChild(b);
-    }
+    card.hidden=false;$("#bkMove").hidden=false;
+    $("#bkFileTxt").textContent=(a[0]?a[0].name+" in the folder you chose.":"Save backup now asks where to save the first time.")+(a[1]?" "+a[1].name+" (forecast) is refreshed with each backup.":"");
   });
 }
-$("#saveNow").addEventListener("click",function(){closeMenus();saveBackup(false)});
+function bkRefresh(){bkChip();dmRefresh()}
+$("#bkMove").addEventListener("click",function(){saveBackup(true)});
 $("#bkChip").addEventListener("click",function(){saveBackup(false)});
-$("#exportJson").addEventListener("click",function(){closeMenus();saveBackup(true)});
-$("#exportCsv").addEventListener("click",function(){closeMenus();saveCsv()});
+document.addEventListener("click",function(e){
+  var b=e.target.closest&&e.target.closest("[data-dm]");if(!b)return;var k=b.dataset.dm;closeMenus();
+  if(k==="backup")saveBackup(false);else if(k==="sync"){if(SYNC)SYNC.open()}else if(k==="json")saveBackup(true);
+  else if(k==="csv")saveAllCsv();else if(k==="zip")saveZip();else if(k==="fx")saveCsv();else if(k==="imp")pickImport();else if(k==="clear")openWipe();
+});
 document.addEventListener("keydown",function(e){
   if((e.ctrlKey||e.metaKey)&&!e.altKey&&(e.key==="s"||e.key==="S")){e.preventDefault();if(ob.hidden)saveBackup(false)}
 });
-if(/Mac|iPhone|iPad/.test(navigator.platform||""))$("#saveKbd").textContent="⌘S";
 bkChip();setInterval(bkChip,60000);
 
+/* Export All (CSV): saved places and settings, one row per place. Export All (ZIP): backup + spreadsheets + README. */
+function placeRows(){
+  var rows=[],seen={},on=RULES.filter(function(r){return work.rules[r.k]&&work.rules[r.k].on}).map(function(r){var v=work.rules[r.k].v;return r.type==="bool"?r.label:r.label+" "+v}).join("; ");
+  function add(role,p){
+    if(!p||!isFinite(p.lat)||!isFinite(p.lon))return;var key=(+p.lat).toFixed(4)+","+(+p.lon).toFixed(4);
+    if(seen[key]){seen[key].role+=" + "+role;return}
+    var r={role:role,name:p.name,lat:+p.lat,lon:+p.lon,tu:prefs.tu,wu:prefs.wu,model:prefs.model,mode:prefs.mode,act:actId(),gdd:prefs.gddStart,theme:prefs.theme==="dark"?"dark":"light",preset:PRESETS[work.preset]?PRESETS[work.preset].name:work.preset,limits:on};
+    seen[key]=r;rows.push(r);
+  }
+  add("home",home);add("last viewed",store.get("weather.place",null));if(!rows.length)add("sample location",DEMO);
+  return rows;
+}
+var PLACE_COLS=[{key:"role",label:"place"},{key:"name",label:"name"},{key:"lat",label:"latitude"},{key:"lon",label:"longitude"},{key:"tu",label:"temperature_unit"},{key:"wu",label:"wind_unit"},{key:"model",label:"forecast_model"},{key:"mode",label:"view"},{key:"act",label:"activity"},{key:"gdd",label:"season_gdd_start"},{key:"theme",label:"theme"},{key:"preset",label:"windows_plan_for"},{key:"limits",label:"windows_limits_F_mph_in"}];
+function placesCsv(){return MBFiles.csv(placeRows(),PLACE_COLS)}
+/* one-off file: the save dialog where the browser has one, otherwise a download */
+function saveOnce(blob,name,types){
+  if(!FSA){download(blob,blob.type,name);return Promise.resolve({mode:"download",name:name})}
+  return window.showSaveFilePicker({suggestedName:name,types:types,id:"weather"}).then(function(h){return writeFile(h,blob,blob.type).then(function(){return{mode:"file",name:h.name}})})
+    .catch(function(e){if(isAbort(e))throw e;download(blob,blob.type,name);return{mode:"download",name:name}});
+}
+function saveAllCsv(){
+  if(!window.MBFiles){toast("Could not make the CSV file. Reload the page and try again.");return}
+  saveOnce(new Blob([placesCsv()],{type:"text/csv"}),"weather-places-"+today()+".csv",PLACES_TYPES).then(function(r){
+    toast(r.mode==="file"?"Places and settings saved to "+r.name+".":"Places and settings downloaded as "+r.name+".")},function(e){if(!isAbort(e))toast("Could not save the file.")});
+}
+function zipEntries(){
+  var e=[{name:"weather-backup.json",data:jsonText()},{name:"weather-places.csv",data:placesCsv()}];
+  if(DATA)e.push({name:"weather-forecast.csv",data:csvText()});
+  e.push({name:"README.txt",data:["Weather (weather.mcbflow.com) backup, made "+new Date().toLocaleString("en-US"),"",
+    "weather-backup.json   Your home location, settings and Windows limits. Restore it in Weather: Data, Import Backup (this .zip works too).",
+    "weather-places.csv    Your saved places and settings, one row per place, for spreadsheets.",
+    DATA?"weather-forecast.csv  The hourly forecast for "+loc.name+" at the time of export (temperatures in °F, wind in mph, rain in inches).":"",
+    "","Made on your device. Nothing was uploaded."].filter(function(x,i,a){return x!==""||i===1||i===a.length-2}).join("\r\n")+"\r\n"});
+  return e;
+}
+function saveZip(){
+  if(!window.MBFiles){toast("Could not make the ZIP file. Reload the page and try again.");return}
+  MBFiles.zip(zipEntries()).then(function(blob){return saveOnce(new Blob([blob],{type:"application/zip"}),"weather-backup-"+today()+".zip",ZIP_TYPES)}).then(function(r){
+    toast(r.mode==="file"?"ZIP saved to "+r.name+".":"ZIP downloaded as "+r.name+".")},function(e){if(!isAbort(e))toast("Could not make the ZIP file.")});
+}
+
+var PENDING=null;
 function importText(txt){
   var o=null;try{o=JSON.parse(txt)}catch(e){}
   var c=cleanImport(o);
   if(!c){toast("That file is not a valid Weather backup.");return}
+  PENDING=c;
+  var parts=[];if(c.home)parts.push("home: "+c.home.name);if(c.prefs)parts.push("settings ("+(c.prefs.tu==="C"?"°C":c.prefs.tu==="F"?"°F":"units")+(c.prefs.mode?", "+(c.prefs.mode==="pro"?"Pro":"Everyday")+" view":"")+")");if(c.work)parts.push("Windows limits ("+PRESETS[c.work.preset].name+")");
+  var when=o.exported&&!isNaN(new Date(o.exported))?" from "+new Date(o.exported).toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}):"";
+  $("#impTxt").textContent="This backup"+when+" holds "+(parts.length?parts.join(", "):"no home, settings or limits")+".";
+  var d=$("#impDlg");if(d.showModal){if(!d.open)d.showModal()}else d.setAttribute("open","");
+}
+function applyImport(c){
+  if(!c)return;
   if(c.home)store.set("weather.home",c.home);
   if(c.prefs)store.set("weather.prefs",Object.assign({},prefs,c.prefs,{notify:false}));
   if(c.work)store.set("weather.work",c.work);
   store.set("weather.onboarded",true);
   location.reload();
 }
+$("#impNo").addEventListener("click",function(){PENDING=null;$("#impDlg").close()});
+$("#impYes").addEventListener("click",function(){var c=PENDING;PENDING=null;$("#impDlg").close();applyImport(c)});
+function isZipFile(f){return /\.zip$/i.test(f.name||"")||/zip/.test(f.type||"")}
 function importFile(f){
   if(!f)return;
+  if(isZipFile(f)){
+    if(!window.MBFiles){toast("Could not open the ZIP file. Reload the page and try again.");return}
+    if(f.size>20e6){toast("That file is too large to be a Weather backup.");return}
+    MBFiles.unzip(f).then(function(es){
+      var j=es.filter(function(x){return /-backup\.json$/i.test(x.name)})[0];
+      if(!j){var js=es.filter(function(x){return /\.json$/i.test(x.name)});j=js.length===1?js[0]:null}
+      if(!j)throw new Error("none");return j.text();
+    }).then(importText,function(){toast("That ZIP file has no Weather backup inside.")});
+    return;
+  }
   if(f.size>200000){toast("That file is too large to be a backup.");return}
   var rd=new FileReader();
   rd.onload=function(){importText(rd.result)};
@@ -3257,16 +3518,15 @@ function pickImport(){
   closeMenus();
   if(typeof window.showOpenFilePicker!=="function"){$("#importFile").click();return}
   function open(prev){
-    var o={types:[{description:"weather.mcbflow.com backup (JSON)",accept:{"application/json":[".json"]}}],multiple:false,id:"weather"};if(prev)o.startIn=prev;
+    var o={types:[{description:"weather.mcbflow.com backup (JSON or ZIP)",accept:{"application/json":[".json"],"application/zip":[".zip"]}}],multiple:false,id:"weather"};if(prev)o.startIn=prev;
     return window.showOpenFilePicker(o);
   }
   hGet("json").then(function(h){return open(h).catch(function(e){if(isAbort(e)||!h)throw e;return open(null)})})
     .then(function(a){return a[0].getFile()}).then(importFile)
     .catch(function(e){if(!isAbort(e))$("#importFile").click()});
 }
-$("#importBtn").addEventListener("click",pickImport);
 $("#importFile").addEventListener("change",function(){var f=this.files&&this.files[0];this.value="";importFile(f)});
-$("#wipeBtn").addEventListener("click",function(){closeSettings();$("#wipeSync").hidden=!(SYNC&&SYNC.status().signedIn);var d=$("#wipe");if(d.showModal)d.showModal();else d.setAttribute("open","")});
+function openWipe(){closeMenus();$("#wipeSync").hidden=!(SYNC&&SYNC.status().signedIn);var d=$("#wipe");if(d.showModal)d.showModal();else d.setAttribute("open","")}
 $("#wipeNo").addEventListener("click",function(){$("#wipe").close()});
 $("#wipeYes").addEventListener("click",function(){
   try{Object.keys(localStorage).filter(function(k){return k.indexOf("weather.")===0}).forEach(function(k){localStorage.removeItem(k)})}catch(e){}
@@ -3295,24 +3555,28 @@ function syncApply(m){
   if(m.work&&m.work.rules&&Object.prototype.hasOwnProperty.call(PRESETS,m.work.preset)){work=m.work;Object.keys(BASE).forEach(function(k){if(!work.rules[k])work.rules[k]={on:0,v:BASE[k].v}});saveWork()}
   try{$("#tu").value=prefs.tu;$("#wu").value=prefs.wu;$("#model").value=prefs.model}catch(e){}
   applyMode();
+  if(!ob.hidden&&home&&!OB.replay){obClose()}   // signed in from the welcome screen: the synced home arrived
   if(JSON.stringify(home)!==oldHome&&wasHome&&home){loc=home;load()}
   else{updateBar();if(DATA)render()}
 }
-function updateSyncUI(st){
-  var t=$("#dmSyncTitle"),sub=$("#dmSyncSub");if(!t)return;
-  t.textContent=st.signedIn?"Sync: "+st.label:"Sync across devices…";
-  sub.textContent=st.signedIn?st.email:"Optional free account. Your settings stay on this device too";
-}
+function updateSyncUI(st){bkChip();dmRefresh();if(!ob.hidden)obAcct()}
+/* greeting on Home (mb-sync 1.1): one element, moved into the sky hero each time it is drawn */
+var GREET=null,GHOLD=document.createElement("div");GHOLD.hidden=true;document.body.appendChild(GHOLD);
 if(window.MBSync){
-  SYNC=MBSync.create({app:"weather",label:"Weather",toRecords:syncRecords,fromRecords:syncApply,
+  SYNC=MBSync.create({app:"weather",label:"Weather",what:"your home location, Windows limits and forecast settings",note:"Theme, notifications, the place you’re viewing and saved forecasts stay on each device.",
+    toRecords:syncRecords,fromRecords:syncApply,
     hasData:function(){return !!(store.get("weather.home",null)||store.get("weather.work",null))},onStatus:updateSyncUI});
-  $("#syncBtn").addEventListener("click",function(){closeMenus();SYNC.open()});
-}else{$("#syncBtn").hidden=true}
-(function(){var t=null;function fix(){document.querySelectorAll(".scroll").forEach(function(e){if(!e.hasAttribute("tabindex"))e.tabIndex=0})}
+  SYNC.button($("#acctBtn"));SYNC.card($("#syncCard"));
+  GREET=document.createElement("p");GREET.className="mb-greet";GREET.id="greet";GHOLD.appendChild(GREET);SYNC.greet(GREET,{name:""});
+  window.addEventListener("mbsync:status",function(){bkChip();dmRefresh()});
+}else{$("#acctBtn").hidden=true}
+dmRefresh();
+(function(){var t=null;function fix(){document.querySelectorAll(".scroll").forEach(function(e){if(!e.hasAttribute("tabindex")&&!e.querySelector(".chbox"))e.tabIndex=0})}
   new MutationObserver(function(){clearTimeout(t);t=setTimeout(fix,60)}).observe(document.body,{childList:true,subtree:true});fix()})();
 applyMode();
 
-if(!store.get("weather.onboarded",false)&&!home){obOpen();load()}
+if(/^#settings$/.test(location.hash))showTab("settings");
+if(!store.get("weather.onboarded",false)&&!home&&!(window.MBSync&&MBSync.hasSavedSignIn())){obOpen();load()}
 else{if(home)store.set("weather.onboarded",true);load()}
 
 /* ---------- share images (MB Suite v3 MBShare): drawn on this device from the forecast on screen.

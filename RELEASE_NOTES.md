@@ -1,12 +1,26 @@
 # weather.mcbflow.com release notes
 
+## 1.12 · 2026-10-16
+- New Settings page (the gear at the bottom of the sidebar, and in the phone bottom bar; inside More in Pro view). Same order as the other mcbflow.com apps: Appearance, Account & sync, Weather settings (view, units, forecast model, alert notifications, welcome screen), Backup & data, Install, About. The Settings gear and its pop-up are gone from the top bar.
+- Account button in the top bar (Sign in, or your profile picture with a sync dot). Signed in, the account dialog has Edit profile: a screen name and one of the profile pictures, shared by every mcbflow.com app. New "Keep me signed in on this device" (turn it off on a shared computer).
+- Home now starts with a greeting ("Good morning", with your first name when signed in).
+- Overview is now called Home, with the standard house icon; Settings uses the standard gear and About & help is now Help.
+- The same welcome screen as the other apps: Welcome, Pick a look, where you want your forecast (use your location, search a town or ZIP, or keep the Mount Washington sample), then Simple or Detailed view and alerts. Sign in and Import a backup are on the welcome screen too. It says what is sent: forecasts are looked up for the places you choose, and your location only if you allow it.
+- Clearer Data menu with a one-line description for each item, in the same order as the other apps. New Export All (CSV) (your places and settings, one row per place) and Export All (ZIP) (backup, spreadsheets and a README in one file). Export Forecast (CSV) is still there. Import Backup now also reads the ZIP, shows what the backup holds and asks before it replaces anything. Older backups, including ones from the old address, still import.
+- Backup reminders stay quiet while you're signed in and syncing: the chip reads "Synced" and the Data status says "Synced to your account".
+- Charts are easier to read: hover, tap or use the arrow keys on any chart to see the exact value, time and context, with a crosshair on line charts. Series colors now follow the app's blue with ochre and slate, freezing and gust limits are dashed and labelled, bars have rounded tops, and the 10-day bars and the Plan hour grid show labels too.
+- Even top bar: every control is the same height, and the light/dark switch matches the buttons.
+- New name style: Weather ∙ mcbflow.com (phones show just "Weather").
+- One page footer on every view, with What's new, Privacy, Terms and More free apps, plus "Not for safety-critical decisions. Follow official weather alerts." Data credits stay above it.
+- No photos or file attachments in this app, so the new in-app file viewer isn't used here.
+
 ## 1.11 · 2026-10-15
 - New: optional sync across devices. Data → Sync signs in with a free mcbflow.com account; your home location, Windows limits and forecast settings (units, model, view, activity, season start) then match on every device you sign in on. Theme, last tab and notifications stay per device.
 - Everything still saves on this device first. Not signed in: nothing changes, and no account server is contacted.
 - Clear all data warns when you're signed in, since it also clears your synced settings.
 
 ## 1.10 · 2026-10-14
-- Moved to weather.mcbflow.com. Data saved at mbweather.online doesn't carry over: export a backup there and import it here. Backups exported from mbweather.online still import.
+- Moved to weather.mcbflow.com. Data saved at the old address doesn't carry over: export a backup there and import it here. Backups exported from the old address still import.
 - Storage names simplified.
 - "More free apps" now links to mcbflow.com.
 
@@ -87,7 +101,7 @@
 
 **Brand art (all original)**
 - New logo and favicon: azure-to-cyan badge, warm sun, frosted cloud, faint isobar lines. `favicon.svg` is the master. Rendered from it: `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`, `favicon.ico`.
-- New `og-image.png` (1200x630) and link-preview tags (Open Graph and Twitter large card) in `index.html`. They point to `https://mbweather.online/`. Change that address in the head of `index.html` if the site lives elsewhere.
+- New `og-image.png` (1200x630) and link-preview tags (Open Graph and Twitter large card) in `index.html`. They point to `https://weather.mcbflow.com/`. Change that address in the head of `index.html` if the site lives elsewhere.
 - Manifest colours updated.
 
 **Overview order**
