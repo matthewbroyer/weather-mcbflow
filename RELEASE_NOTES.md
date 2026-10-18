@@ -1,5 +1,20 @@
 # weather.mcbflow.com release notes
 
+## 1.14 · 2026-10-17
+- On phones the bottom bar is now Home · Hourly · Map · Plan · More in both views. More opens the same sheet as the other mcbflow.com apps: Settings, then Compare and Field & air (Pro view), Help and What's new. Settings moved from the bar into More (first item).
+- New Help page (sidebar and More): Getting started, then questions grouped by topic, ending with Install the app and Your data & privacy. The old pop-up now holds only Privacy, Terms and Credits.
+- Search (the Search button, "/" or Ctrl+K) opens one search box: it finds your home and the place you're viewing, the app's sections, and a last row "Search for …" that looks the town or ZIP up as before.
+- What's new opens the same dialog as the other apps, with every release.
+- Messages at the bottom of the screen look the same as in the other apps.
+- Settings says "Changes save as you make them." and the Install section reads the same in every app.
+- Export Forecast (CSV) works even before a forecast has loaded (you get the column headings), and every export says what it saved and the file name. File names use your local date.
+- Your home, settings, Windows limits and backups are unchanged.
+
+## 1.13 · 2026-10-17
+- Clear all data now asks you to type DELETE, the same in every mcbflow.com app, and offers to save a backup first. When you're signed in it says the synced copy on your account is deleted too.
+- Account pop-up spacing fixed.
+- A very long place name now wraps on the Home card instead of pushing the weather tiles out of view on phones.
+
 ## 1.12 · 2026-10-16
 - New Settings page (the gear at the bottom of the sidebar, and in the phone bottom bar; inside More in Pro view). Same order as the other mcbflow.com apps: Appearance, Account & sync, Weather settings (view, units, forecast model, alert notifications, welcome screen), Backup & data, Install, About. The Settings gear and its pop-up are gone from the top bar.
 - Account button in the top bar (Sign in, or your profile picture with a sync dot). Signed in, the account dialog has Edit profile: a screen name and one of the profile pictures, shared by every mcbflow.com app. New "Keep me signed in on this device" (turn it off on a shared computer).
